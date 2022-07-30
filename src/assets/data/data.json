@@ -1,0 +1,57 @@
+{
+	"name": "Ignacio Vassallo",
+	"image": "url",
+	"position": "Desarrollador FullStacks",
+	"abbout": "Soy de la ciudad de Mercedes, Buenos Aires. Me dedico a la Impresion 3D y la venta web. Atualmente me encuentro cursando el Argentina Programa 2022, mi meta es llegar a ser Desarrollador Full Stack para buscar un trabajo mas referido a lo que me gusta",
+	"jobs": [{
+			"name": "ser Com",
+			"position": "Electricista",
+			"description": "Trabajos como empleado electricista e instalador de camaras y alarmas con Ser Com. Planificacion y realizacion de tendido electrico y de datos. Colocacion de camaras CCTV e IP."
+		},
+		{
+			"name": "Oxi-Mercedes S.A",
+			"position": "Operador Ecommerce / Mantenimiento Web",
+			"description": "Trabajos de mantenimiento web, carga de contenido y productos. Publicidad y manejo de redes. Venta digital, facturacion y procesamiento de envios"
+		},
+		{
+			"name": "Centro de Formacion Laboral Nº402",
+			"position": "Instructor",
+			"description": "Clases de Diseño 3D. SolidWorks y Fusion 360. herramientas basicas, croquis, evaluacion de diseño, Test de resistencia, Prototipado de pieza en 3D"
+		}
+	],
+	"education": [{
+			"name": "Universidad Nacional de Lujan",
+			"dates": {
+				"start": "Marzo 2013",
+				"finish": "Septiembre 2016"
+			},
+			"career": "Licenciatura en Sistemas",
+			"observations": "Hasta Tercer año. titulo incompleto"
+		},
+		{
+			"name": "CFP Nº402",
+			"dates": {
+				"start": "Marzo 2017",
+				"finish": "Noviembre 2017"
+			},
+			"career": "Programacion de Arduino",
+			"observations": ""
+		},
+		{
+			"name": "Argentina Programa",
+			"dates": {
+				"start": "Agosto 2021",
+				"finish": "Actualmente"
+			},
+			"career": "Desarrollador Full Stack",
+			"observations": ""
+		}
+	],
+	"projects": [{
+		"name": "Zona 3D",
+		"image": "URL",
+		"description": "Emprendimiento de Impresion y diseño 3D de piezas, Tecnicas y artisticas. Diseño e impresion de repuestos para maquinaria",
+		"link": "#"
+	}],
+	"habilities": ["html", "javascript", "CSS", "MySQL", "Illustrator", "Photoshop", "MongoDB", "JAVA"]
+}
