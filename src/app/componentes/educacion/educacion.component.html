@@ -1,38 +1,12 @@
 <div id="education">
     <h2 class="heading">Educación</h2>
-    <div class="education-block">
-        <h3>Escuela Nacional N°3</h3>
-        <span class="education-date">Marzo 2006 - Diciembre 2012</span>
-        <h4>Bachiller en Ciencias Sociales</h4>
-        <p>
-            
-        </p>
-    </div>
+        <div class="education-block" *ngFor= "let edu of miEducacion" >
+            <h3>{{edu.name}}</h3>
+            <span class="education-date">{{edu.dates.start}} - {{edu.dates.finish}}</span>
+            <h4>{{edu.career}}</h4>
+            <p>{{edu.observations}}</p>
+        </div>
+</div>
     <!-- End .education-block -->
 
-    <div class="education-block">
-        <h3>Universidad Nacional de Lujan</h3>
-        <span class="education-date">Marzo 2013 - Septiembre 2016</span>
-        <h4>Licenciatura en Sistemas</h4>
-        <ul>
-            <li>
-                Hasta Tercer año. titulo incompleto
-            </li>
-            <!--<li>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </li>
-            <li>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            </li>-->
-        </ul>
-    </div>
-
-     <div class="education-block">
-        <h3>CFP N° 402</h3>
-        <span class="education-date">Marzo 2017 - Diciembre 2017</span>
-        <h4>Programacion de Arduino, Armado de Impresoras 3D</h4>
-        <p>
-            
-        </p>
-        </div>
-    </div>
+    

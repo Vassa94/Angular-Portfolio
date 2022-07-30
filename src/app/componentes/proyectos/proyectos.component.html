@@ -1,21 +1,18 @@
 <div id="projects" class="background-alt">
         <h2 class="heading">Proyectos</h2>
-        <div class="container">
+        <div class="container" *ngFor="let proyecto of misProyectos" >
             <div class="row">
                 <div class="project shadow-large">
                     <div class="project-image">
-                        <img src="https://scontent.fjni2-1.fna.fbcdn.net/v/t31.18172-8/14570576_1716486228677592_3813187134920779111_o.jpg?_nc_cat=111&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeHnlMjY604Occ7Ym1V2iG3yBQgFHkfj3psFCAUeR-PemzvA9VrUcKXG-lG3XxU2YqNi9-68I3ph8qVaot8BzwDu&_nc_ohc=1bVAJlVghTkAX8ddJYO&_nc_ht=scontent.fjni2-1.fna&oh=00_AT-sHtPdd7A0106mOxuRIUMHz66FjLDG7qezIGqDgtsh_Q&oe=626E6B3D" width="300" height="300"  />
+                        <img [src]="proyecto.image" width="300" height="300"  />
                     </div>
-                    <!-- End .project-image -->
+                    
                     <div class="project-info">
-                        <h3>Zona 3D</h3>
-                        <p>
-                            Emprendimiento de Impresion y diseño 3D de piezas, Tecnicas y artisticas. Diseño e impresion de repuestos para maquinaria.
-                        </p>
-                        <a href="https://www.facebook.com/Z3DMercedes">Ver pagina</a>
+                        <h3>{{proyecto.name}}</h3>
+                        <p>{{proyecto.description}}</p>
+                        <a [href]="proyecto.link" target="_blank">Ver pagina</a>
                     </div>
-                    <!-- End .project-info -->
-               
+                </div>
             </div>
         </div>
-    
+</div>

@@ -1,36 +1,24 @@
-<div id="experience" class="background-alt">
-    <h2 class="heading">Experiencia</h2>
-    <div id="experience-timeline">
-        <div class="vtimeline-point"><div class="vtimeline-icon"><i class="fa fa-map-marker"></i></div><div class="vtimeline-block"><span class="vtimeline-date">Diciembre 2012 – Enero 2016</span><div data-date="Diciembre 2012 – Enero 2016" class="vtimeline-content">
-            <h3>Ser Com</h3>
-            <h4>Electricista</h4>
-            <p>
-                Trabajos como empleado electricista e instalador de camaras y alarmas con Ser Com. Planificacion y realizacion de tendido electrico y de datos. Colocacion de camaras CCTV e IP. 
-            </p>
-        </div></div></div>
-
-        <div class="vtimeline-point"><div class="vtimeline-icon"><i class="fa fa-map-marker"></i></div><div class="vtimeline-block"><span class="vtimeline-date">Agosto 2015 – Actualidad</span><div data-date="Agosto 2015 – Actualidad" class="vtimeline-content">
-            <h3>Oxi-Mercedes S.A.</h3>
-            <h4>Operador Ecommerce / Mantenimiento web</h4>
-            <p>
-                Trabajos de mantenimiento web, carga de contenido y productos. Publicidad y manejo de redes. Venta digital, facturacion y procesamiento de envios
-            </p>
-        </div></div></div>
-
-        <div class="vtimeline-point"><div class="vtimeline-icon"><i class="fa fa-map-marker"></i></div><div class="vtimeline-block"><span class="vtimeline-date">Marzo 2019 – Actualidad</span><div data-date="Marzo 2019 – Actualidad" class="vtimeline-content">
-            <h3>Centro de Formacion Laboral N°402</h3>
-            <h4>Instructor Diseño 3D e Impresion</h4>
-            <p>
-                Clases de Diseño 3D. SolidWorks y Fusion 360. herramientas basicas, croquis, evaluacion de diseño, Test de resistencia, Prototipado de pieza en 3D
-            </p>
-        </div></div></div>
-
-        <!--<div data-date="September 2015 – September 2016">
-            <h3>Employer Name</h3>
-            <h4>Job Title</h4>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in iaculis ex. Etiam volutpat laoreet urna. Morbi ut tortor nec nulla commodo malesuada sit amet vel lacus. Fusce eget efficitur libero. Morbi dapibus porta quam laoreet placerat.
-            </p>
-        </div>-->
-    </div>
+<div  
+    id="experience" 
+    class="background-alt">
+        <h2 class="heading">
+                Experiencia
+        </h2>
+            <div 
+                *ngFor="let exp of miExperiencia" 
+                id="experience-timeline">
+                    <div class="vtimeline-point">
+                        <div class="vtimeline-icon">
+                            <i class="fa fa-map-marker"></i>
+                        </div> 
+                        <div class="vtimeline-block">
+                            <span class="vtimeline-date">{{exp.dates.start}} – {{exp.dates.finish}}</span>
+                            <div data-date="Diciembre 2012 – Enero 2016" class="vtimeline-content">
+                                <h3>{{exp.name}}</h3>
+                                <h4>{{exp.position}}</h4>
+                                <p>{{exp.description}}</p>
+                            </div>      
+                        </div>
+                    </div>
+        </div>
 </div>
