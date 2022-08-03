@@ -24,8 +24,10 @@
     "@fortawesome/free-regular-svg-icons": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
     "@popperjs/core": "^2.11.5",
+    "@types/scriptjs": "^0.0.2",
     "bootstrap": "^5.2.0",
     "rxjs": "~7.5.0",
+    "scriptjs": "^2.5.9",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },

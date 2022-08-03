@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule} from '@angular/common/http'
 
+
 import { HeaderComponent } from './componentes/header/header.component';
 import { ExperienciaComponent } from './componentes/experiencia/experiencia.component';
 import { SobreMiComponent } from './componentes/sobre-mi/sobre-mi.component';
@@ -12,6 +13,13 @@ import { EducacionComponent } from './componentes/educacion/educacion.component'
 import { ProyectosComponent } from './componentes/proyectos/proyectos.component';
 import { SkillsComponent } from './componentes/skills/skills.component';
 import { ContactoComponent } from './componentes/contacto/contacto.component';
+import { NavComponent } from './componentes/nav/nav.component';
+
+
+
+
+
+  
 
 @NgModule({
   declarations: [
@@ -22,7 +30,8 @@ import { ContactoComponent } from './componentes/contacto/contacto.component';
     EducacionComponent,
     ProyectosComponent,
     SkillsComponent,
-    ContactoComponent
+    ContactoComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,

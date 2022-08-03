@@ -1,0 +1,13 @@
+.navbar-nav {
+	--bs-nav-link-color:#fff ;
+	background: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
+}
+.navbar-right {
+	display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}

@@ -16,6 +16,18 @@ export class HeaderComponent implements OnInit {
     this.datosPortfolio.obtenerDatos().subscribe(data =>{
       this.miPortfolio=data;
     });
+    
   }
+  isCollapse = false;   // estado del menu
+  toggleState(): void { // manejador del evento menu
+        let foo = this.isCollapse;
+        this.isCollapse = foo === false ? true : false; 
+    }
 
+
+  
+  
 }
+
+
+
