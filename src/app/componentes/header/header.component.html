@@ -1,42 +1,20 @@
-<!--<div id="mobile-menu-open" class="shadow-large">
-    <i class="fa fa-bars" aria-hidden="true"></i>
-</div> -->
+<div id="lead">
 
-
-
-<header>
-    
-
-
-    <!--
-        <div id="mobile-menu-close">
-            <span>Close</span> 
-            <i class="fa fa-times" aria-hidden="true"></i>
-        </div>
-        <ul id="menu" class="shadow">
-            <li>
-                <a href="#about">About</a>
+    <div >
+        <ul class="botones">
+            <li class="orden">
+                <button 
+                    type="button" 
+                    class="btn edicion btn-outline-secondary" 
+                    (click)="openPopup()"><i class="fa fa-pencil-square"></i></button>
             </li>
-            <li>
-                <a href="#experience">Experiencia</a>
-            </li>
-            <li>
-                <a href="#education">Educación</a>
-            </li>
-            <li>
-                <a href="#projects">Projectos</a>
-            </li>
-            <li>
-                <a href="#skills">Habilidades</a>
-            </li>
-            <li>
-                <a href="#contact">Contacto</a>
+            <li class="orden">
+                <button type="button" class="btn edicion btn-outline-secondary"><i class="fa fa-times"></i></button>
             </li>
         </ul>
-      -->
-</header>
+    </div>
 
-<div id="lead">
+
     <div id="lead-content">
         <h1> {{miPortfolio.name}} </h1>
         <h2> {{miPortfolio.position}} </h2>
@@ -48,8 +26,33 @@
 
     <div id="lead-down">
         <span>
-            <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+            <i class="fa-solid fa-chevron-down" aria-hidden="true">
+                <a class="nav-link" href="#experiencia"  ></a>
+            </i>
         </span>
     </div>
     <!-- End #lead-down -->
+</div>
+
+<!-- Trigger the modal with a button -->
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content" [ngStyle]="{'display':displayStyle}">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Datos</h4>
+      </div>
+      <div class="modal-body">
+        <textarea name="Nombre"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
 </div>

@@ -14,6 +14,7 @@ import { ProyectosComponent } from './componentes/proyectos/proyectos.component'
 import { SkillsComponent } from './componentes/skills/skills.component';
 import { ContactoComponent } from './componentes/contacto/contacto.component';
 import { NavComponent } from './componentes/nav/nav.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -37,7 +38,8 @@ import { NavComponent } from './componentes/nav/nav.component';
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

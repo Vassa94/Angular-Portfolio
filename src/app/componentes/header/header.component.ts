@@ -3,6 +3,9 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 
 
 
+
+
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',

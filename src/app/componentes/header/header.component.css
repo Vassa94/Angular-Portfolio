@@ -1,0 +1,21 @@
+.edicion {
+	
+	border-radius: 2rem;
+	border-width: 2px;
+
+		
+}
+
+.botones {
+	float: right;
+	list-style-type: none;
+}
+
+
+
+.orden {
+  
+  float: left;
+  margin-right: 10px;
+  padding: 0 4px;
+}
