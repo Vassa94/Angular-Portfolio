@@ -8,14 +8,25 @@
 
 .botones {
 	float: right;
+	position: relative;
 	list-style-type: none;
+	text-align: right;
+	z-index: 10;
+	
 }
-
-
 
 .orden {
   
   float: left;
   margin-right: 10px;
   padding: 0 4px;
+}
+
+.overlay-buttons {
+	z-index: 10;
+
+}
+
+.modal-header{
+	background: rgba(33,125,187,0.8) ;
 }

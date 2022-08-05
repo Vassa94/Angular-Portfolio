@@ -1,32 +1,36 @@
 <div id="lead">
 
-    <div >
+    <div class="botones">
         <ul class="botones">
             <li class="orden">
                 <button 
                     type="button" 
-                    class="btn edicion btn-outline-secondary" 
-                    (click)="openPopup()"><i class="fa fa-pencil-square"></i></button>
+                    class="btn edicion btn-outline-secondary"
+                    (click)="open(content)"
+                    ><i class="fa fa-pencil-square"></i></button>
             </li>
-            <li class="orden">
+            <!-- <li class="orden">
                 <button type="button" class="btn edicion btn-outline-secondary"><i class="fa fa-times"></i></button>
-            </li>
+            </li> -->
         </ul>
     </div>
+    
 
 
     <div id="lead-content">
         <h1> {{miPortfolio.name}} </h1>
         <h2> {{miPortfolio.position}} </h2>
         <!--<a href="#" class="btn-rounded-white">Curriculum</a>  ver agregar curriculum-->
-    </div>
+    </div >
     <!-- End #lead-content -->
 
     <div id="lead-overlay"></div>
 
+
+
     <div id="lead-down">
         <span>
-            <i class="fa-solid fa-chevron-down" aria-hidden="true">
+            <i class="fa-solid fa-chevron-down" aria-hidden="true" >
                 <a class="nav-link" href="#experiencia"  ></a>
             </i>
         </span>
@@ -34,25 +38,43 @@
     <!-- End #lead-down -->
 </div>
 
-<!-- Trigger the modal with a button -->
+
 
 <!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
     <!-- Modal content-->
-    <div class="modal-content" [ngStyle]="{'display':displayStyle}">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Datos</h4>
+    <ng-template #content let-modal>
+      <div class="modal-header"  >
+        <h2 class="modal-title">Datos personales</h2>
+        <button 
+            type="button" 
+            class="close edicion" 
+            data-dismiss="modal"
+            (click)="modal.dismiss('Cross click')"
+            >
+                <i class="fa fa-times"></i>
+        </button>
       </div>
       <div class="modal-body">
-        <textarea name="Nombre"></textarea>
+        <form>
+            <div class="form-group" >
+                <label for="firstname">Nombre</label>
+                <div>
+                    <input placeholder="{{miPortfolio.name}}" id="firstname" class="form-control" >
+                </div>
+                <label for="firstname">Apellido</label>
+                <div>
+                    <input placeholder="Apellido" id="firstname" class="form-control" >
+                </div>
+                <label for="firstname">Titulo</label>
+                <div>
+                    <input placeholder="Trabajo" id="firstname" class="form-control" >
+                </div>
+            </div>            
+        </form>        
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success btn-modal" (click)="modal.close('Save click')">Guardar cambios</button>
       </div>
-    </div>
+    </ng-template>
 
-  </div>
-</div>
+  

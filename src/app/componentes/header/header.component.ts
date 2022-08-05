@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
-
-
-
-
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -13,7 +10,10 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 })
 export class HeaderComponent implements OnInit {
   miPortfolio:any;
-  constructor(private datosPortfolio:PortfolioService) { }
+
+  closeResult: any;
+
+  constructor(private datosPortfolio:PortfolioService,private modalService:NgbModal) { }
 
   ngOnInit(): void {
     this.datosPortfolio.obtenerDatos().subscribe(data =>{
@@ -21,16 +21,28 @@ export class HeaderComponent implements OnInit {
     });
     
   }
-  isCollapse = false;   // estado del menu
-  toggleState(): void { // manejador del evento menu
-        let foo = this.isCollapse;
-        this.isCollapse = foo === false ? true : false; 
+  
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
     }
-
-
-  
-  
+  }
 }
+  
+  
+
 
 
 
