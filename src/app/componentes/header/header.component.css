@@ -27,4 +27,7 @@
 .modal-header{
 	background: rgba(33,125,187,0.8) ;
 }
+.modal-body,.modal-footer {
+	background: #dcd9d9;
+}
 
