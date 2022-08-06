@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { HttpClientModule} from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 import { HeaderComponent } from './componentes/header/header.component';
@@ -16,7 +18,7 @@ import { ProyectosComponent } from './componentes/proyectos/proyectos.component'
 import { SkillsComponent } from './componentes/skills/skills.component';
 import { ContactoComponent } from './componentes/contacto/contacto.component';
 import { NavComponent } from './componentes/nav/nav.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './componentes/login/login.component';
 
 
 
@@ -34,14 +36,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ProyectosComponent,
     SkillsComponent,
     ContactoComponent,
-    NavComponent
+    NavComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

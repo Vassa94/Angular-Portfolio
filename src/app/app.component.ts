@@ -1,5 +1,6 @@
 import { Component, OnInit  } from '@angular/core';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { FormsModule } from '@angular/forms';
 
 
 

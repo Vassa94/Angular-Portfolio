@@ -2,8 +2,6 @@
 	
 	border-radius: 2rem;
 	border-width: 2px;
-
-		
 }
 
 .botones {
@@ -12,7 +10,6 @@
 	list-style-type: none;
 	text-align: right;
 	z-index: 10;
-	
 }
 
 .orden {
@@ -30,3 +27,4 @@
 .modal-header{
 	background: rgba(33,125,187,0.8) ;
 }
+
