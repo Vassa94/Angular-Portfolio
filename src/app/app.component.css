@@ -43,3 +43,7 @@
 .nav.hide-nav {
   display: none; /* You can play on opacity for nice transitions*/
 }
+
+.edicion-hide {
+  display: none;
+}

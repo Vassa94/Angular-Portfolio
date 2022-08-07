@@ -1,10 +1,11 @@
 <div id="about">
+    <div>
                         <ul class="botones">
                       <li class="orden">
                          <button 
                             type="button" 
                             class="btn edicion btn-outline-secondary"
-                            
+                            (click)="openVerticallyCentered(content)"
                             ><i class="fa fa-pencil-square"></i>
                         </button>
                         </li>
@@ -14,11 +15,15 @@
                             </button>
                         </li> 
                      </ul>
-            
+        </div> 
+        &nbsp;  
     <div class="container">
         <div class="row">
             <div class="col-md-4">
                 <h2 class="heading">Sobre mi</h2>
+                
+                    <img class="perfil" src="https://media-exp1.licdn.com/dms/image/C4D03AQHgxdc5uMAjiw/profile-displayphoto-shrink_800_800/0/1649944767427?e=1665619200&v=beta&t=pOt_N715DHs6--nsurk-E8zNxN_DOa74_lXo1yfDUpI"  alt="Avatar">
+                
             </div>
             <div class="col-md-8">
                 <p>{{miInfo}}</p>
@@ -27,5 +32,38 @@
         </div>
     </div>
 </div>
+
+<!-- Modal -->
+    <!-- Modal content-->
+    <ng-template #content let-modal>
+      <div class="modal-header"  >
+        <h2 class="modal-title">Sobre Mi</h2>
+        <button 
+            type="button" 
+            class="close edicion" 
+            data-dismiss="modal"
+            (click)="modal.dismiss('Cross click')"
+            >
+                <i class="fa fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+            <div class="form-group" >
+                <label for="firstname">Descripcion</label>
+                <div>
+                    <input placeholder="{{miPortfolio.miInfo}}" id="firstname" class="form-control" >
+                </div>
+                <label for="firstname">Imagen de perfil</label>
+                <div>
+                    <input placeholder="URL" id="firstname" class="form-control" >
+                </div>
+            </div>            
+        </form>        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success btn-modal" (click)="modal.close('Save click')">Guardar cambios</button>
+      </div>
+    </ng-template>
 
 <app-experiencia></app-experiencia>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-skills',
@@ -7,13 +8,17 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
   styleUrls: ['./skills.component.css']
 })
 export class SkillsComponent implements OnInit {
-  skils:any;
+  skills:any;
   constructor(private datosPortfolio:PortfolioService) { }
 
   ngOnInit(): void {
     this.datosPortfolio.obtenerDatos().subscribe(data =>{
-      this.skils=data.habilities;
+      this.skills=data.habilities;
     })
+  }
+
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.skills, event.previousIndex, event.currentIndex);
   }
 
 }

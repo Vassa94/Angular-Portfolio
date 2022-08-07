@@ -19,3 +19,9 @@
   padding: 0 4px;
 }
 
+.perfil {
+	border-radius: 80%;
+	float: right;
+	width: 200px;
+	display: inline-block;
+}

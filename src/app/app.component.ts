@@ -19,6 +19,11 @@ export class AppComponent {
 
 
  ngOnInit(): void {
+  const demoClasses = document.querySelectorAll('.edicion');
+  demoClasses.forEach(element => {
+  element.textContent = 'edicion-hide';
+});
+
   }
   isCollapse = false;   // estado del menu
   toggleState(): void { // manejador del evento menu
@@ -49,4 +54,5 @@ constructor(private autorizacionService: AutorizacionService) {
   }
  
 }
+
 
