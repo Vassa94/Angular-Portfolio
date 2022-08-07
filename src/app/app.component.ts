@@ -1,6 +1,9 @@
 import { Component, OnInit  } from '@angular/core';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { FormsModule } from '@angular/forms';
+import { FontawesomeObject } from '@fortawesome/fontawesome-svg-core';
+import { AutorizacionService } from 'src/app/servicios/autorizacion.service';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Router } from '@angular/router';
 
 
 
@@ -12,7 +15,38 @@ import { FormsModule } from '@angular/forms';
 })
 export class AppComponent {
   title = 'Ang_Portfolio';
-  faChevron = faChevronDown;
-}
+  
 
+
+ ngOnInit(): void {
+  }
+  isCollapse = false;   // estado del menu
+  toggleState(): void { // manejador del evento menu
+        let foo = this.isCollapse;
+        this.isCollapse = foo === false ? true : false; 
+    }
+  
+  loggedIn = false;
+  loggedUser:any = null;
+
+constructor(private autorizacionService: AutorizacionService) {
+    this.autorizacionService.isLogged()
+      .subscribe((result)=>{
+        if(result && result.uid) {
+          this.loggedIn = true
+          setTimeout(async ()=>{
+            this.loggedUser = (await this.autorizacionService.getUser().currentUser).email
+          }, 500)
+        } else {
+          this.loggedIn = false
+        }
+      }, (error)=>{
+        this.loggedIn = false
+      })
+  }
+  logout(){
+    this.autorizacionService.logout()
+  }
+ 
+}
 

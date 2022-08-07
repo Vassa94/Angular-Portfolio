@@ -17,6 +17,8 @@ export class AutorizacionService {
   constructor(private angularFireAuth: AngularFireAuth, private router: Router) {
     this.isLogged();
   }
+
+
   
   public login = (email, password) => {
     this.angularFireAuth.signInWithEmailAndPassword(email, password)
@@ -28,22 +30,7 @@ export class AutorizacionService {
           showConfirmButton: false,
           timer: 1500
         });
-        this.router.navigate(['lugares']);
-      }) .catch((error) => {
-        Swal.fire('Ops...', `Ha ocurrido un ${error}`, 'error');
-      });
-  }
-  public registro = (email, password) => {
-    this.angularFireAuth.createUserWithEmailAndPassword(email, password)
-      .then((response) => {
-        Swal.fire({
-          title: '¡Genial!',
-          text: 'Usuario registrado con éxito',
-          icon: 'success',
-          showConfirmButton: true,
-          timer: 1500
-        });
-        this.router.navigate(['lugares']);
+        this.router.navigate(['']);
       }) .catch((error) => {
         Swal.fire('Ops...', `Ha ocurrido un ${error}`, 'error');
       });
@@ -54,7 +41,7 @@ export class AutorizacionService {
   public logout() {
     this.angularFireAuth.signOut();
     Swal.fire('¡Adiós!', 'Sesión cerrada con éxito', 'success');
-    this.router.navigate(['lugares']);
+    this.router.navigate(['']);
   }
   public getUser() {
     return this.angularFireAuth;

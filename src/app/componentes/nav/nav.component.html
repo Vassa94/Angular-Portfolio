@@ -1,4 +1,5 @@
-<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark"  >
+<nav>
+<div class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark"  >
         <a class="navbar-brand" href="#">
             <img src="../assets/APLogo-20-20.png" alt="logo" width="200">
         </a>
@@ -29,27 +30,32 @@
                 </li>
             </ul>
 
-			<ul class="nav navbar-nav navbar-right" >
-				<li routerlinkactive="active" class="nav-item">
-					<a class="nav-link" routerlink="/login">
-						<i class="fa fa-lock" aria-hidden="true"></i>
-						Login 
-					</a>
-				</li>
-			</ul>
-			<!--<ul class="nav navbar-nav navbar-right" >
-				 <li *ngIf="loggedUser"><a>{{AutorizacionService.email}}</a></li> 
-				<li >
-				<a class="nav-link disabled"><i class="fa fa-user-o" aria-hidden="true"></i>
-				-- </a>
-				</li>
-				<li>
-				<a class="nav-link" >-- <i class="fa fa-sign-out" aria-hidden="true"></i>
-				</a>
-				</li>
-			</ul> -->           
+            <ul class="nav navbar-nav navbar-right" *ngIf="!loggedIn">
+                <li routerLinkActive="active" class="nav-item">
+                    <a class="nav-link" routerLink="/login">
+                        <i class="fa fa-lock" aria-hidden="true"></i> Login
+                    </a>
+                </li>
+                <!--<li routerLinkActive="active" class="nav-item">
+                    <a class="nav-link" routerLink="/registro">
+                    <i class="fa fa-plus-square-o" aria-hidden="true"></i> Sign up</a>
+                </li>-->
+            </ul>
+
+			<ul class="nav navbar-nav navbar-right" *ngIf="loggedIn">
+              <li *ngIf="loggedUser">
+                <a class="nav-link disabled"><i class="fa fa-user" aria-hidden="true"></i>
+                  {{loggedUser}}
+                </a>
+              </li>
+              <li>
+                <a class="nav-link" (click)="logout()">Logout
+                <i class="fa fa-sign-out" aria-hidden="true"></i>
+                </a>
+              </li>
+            </ul>     
         </div>
-    </nav>
+    </div>
 
     <div class="navbar-collapse"
         [ngClass]="{ 'collapse': true }">
@@ -58,3 +64,5 @@
            <li><a>Link 2</a><li>
         </ul>
     </div>
+
+</nav>
