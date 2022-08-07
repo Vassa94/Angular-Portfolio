@@ -7,6 +7,28 @@ body.active {
     overflow:hidden;
     z-index:-1
 }
+
+.edicion {
+    
+    border-radius: 2rem;
+    border-width: 2px;
+}
+
+.botones {
+    float: right;
+    position: relative;
+    list-style-type: none;
+    text-align: right;
+    z-index: 10;
+    display:;
+}
+
+.orden {
+  
+  float: left;
+  margin-right: 1px;
+  padding: 0 4px;
+}
 .no-js #experience-timeline>div {
     background:#fff;
     padding:10px;
@@ -715,3 +737,26 @@ footer {
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+.edicion {
+    
+    border-radius: 2rem;
+    border-width: 2px;
+}
+
+.botones {
+    float: right;
+    position: relative;
+    list-style-type: none;
+    text-align: right;
+    z-index: 10;
+}
+
+.orden {
+  
+  float: left;
+  margin-right: 1px;
+  padding: 0 4px;
+}

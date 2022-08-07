@@ -7,6 +7,15 @@ import { HttpClientModule} from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DragDrop, DragDropModule } from '@angular/cdk/drag-drop';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { environment } from '../environments/environment';
+import Swal from 'sweetalert2';
+
 
 
 
@@ -19,6 +28,7 @@ import { SkillsComponent } from './componentes/skills/skills.component';
 import { ContactoComponent } from './componentes/contacto/contacto.component';
 import { NavComponent } from './componentes/nav/nav.component';
 import { LoginComponent } from './componentes/login/login.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -46,7 +56,16 @@ import { LoginComponent } from './componentes/login/login.component';
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    DragDropModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
+    RouterModule
+    
+
   ],
   providers: [],
   bootstrap: [AppComponent]

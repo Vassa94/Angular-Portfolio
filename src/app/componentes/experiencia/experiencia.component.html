@@ -1,24 +1,37 @@
-<div  
-    id="experience" 
-    class="background-alt">
-        <h2 class="heading">
-                Experiencia
-        </h2>
-            <div 
-                *ngFor="let exp of miExperiencia" 
-                id="experience-timeline">
-                    <div class="vtimeline-point">
-                        <div class="vtimeline-icon">
-                            <i class="fa-solid fa-location-dot"></i>
-                        </div> 
-                        <div class="vtimeline-block">
-                            <span class="vtimeline-date">{{exp.dates.start}} – {{exp.dates.finish}}</span>
-                            <div data-date="Diciembre 2012 – Enero 2016" class="vtimeline-content">
-                                <h3>{{exp.name}}</h3>
-                                <h4>{{exp.position}}</h4>
-                                <p>{{exp.description}}</p>
-                            </div>      
-                        </div>
-                    </div>
+<div id="experience" class="background-alt" cdkDropList (cdkDropListDropped)="drop($event)">
+  <h2 class="heading"> Experiencia </h2>
+  <ul class="botones">
+    <li class="orden">
+      <button type="button" class="btn edicion btn-outline-secondary">
+        <i class="fa fa-square-plus"></i>
+      </button>
+    </li>
+  </ul>
+  <div *ngFor="let exp of miExperiencia" id="experience-timeline" cdkDrag>
+    <div class="vtimeline-point">
+      <ul class="botones">
+        <li class="orden">
+          <button type="button" class="btn btn-sm btn-link">
+            <i class="fa fa-pencil-square"></i>
+          </button>
+        </li>
+        <li class="orden">
+          <button class="btn btn-link btn-sm">
+            <i class="fa fa-square-xmark"></i>
+          </button>
+        </li>
+      </ul>
+      <div class="vtimeline-icon"  >
+        <i class="fa-solid fa-location-dot"></i>
+      </div>
+      <div class="vtimeline-block">
+        <span class="vtimeline-date">{{exp.dates.start}} – {{exp.dates.finish}}</span>
+        <div data-date="Diciembre 2012 – Enero 2016" class="vtimeline-content">
+          <h3>{{exp.name}}</h3>
+          <h4>{{exp.position}}</h4>
+          <p>{{exp.description}}</p>
         </div>
+      </div>
+    </div>
+  </div>
 </div>

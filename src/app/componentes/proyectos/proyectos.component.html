@@ -1,11 +1,30 @@
 <div id="projects" class="background-alt">
         <h2 class="heading">Proyectos</h2>
+        <ul class="edicion botones ">
+            <li class="orden">
+              <button type="button" class="btn edicion btn-outline-secondary">
+                <i class="fa fa-square-plus"></i>
+              </button>
+            </li>
+        </ul>
         <div class="container" *ngFor="let proyecto of misProyectos" >
             <div class="row">
                 <div class="project shadow-large">
                     <div class="project-image">
                         <img [src]="proyecto.image" width="300" height="300"  />
                     </div>
+                    <ul class="botones">
+                        <li class="orden">
+                          <button type="button" class="btn btn-sm btn-link">
+                            <i class="fa fa-pencil-square"></i>
+                          </button>
+                        </li>
+                        <li class="orden">
+                          <button class="btn btn-link btn-sm">
+                            <i class="fa fa-square-xmark"></i>
+                          </button>
+                        </li>
+                    </ul>
                     
                     <div class="project-info">
                         <h3>{{proyecto.name}}</h3>

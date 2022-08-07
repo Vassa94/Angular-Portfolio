@@ -1,11 +1,30 @@
-<div id="education">
+<div id="education" cdkDropList (cdkDropListDropped)="drop($event)">
     <h2 class="heading">Educación</h2>
-        <div class="education-block" *ngFor= "let edu of miEducacion" >
-            <h3>{{edu.name}}</h3>
-            <span class="education-date">{{edu.dates.start}} - {{edu.dates.finish}}</span>
-            <h4>{{edu.career}}</h4>
-            <p>{{edu.observations}}</p>
-        </div>
+    <ul class="edicion botones ">
+        <li class="orden">
+          <button type="button" class="btn edicion btn-outline-secondary">
+            <i class="fa fa-square-plus"></i>
+          </button>
+        </li>
+    </ul>
+    <div class="education-block" *ngFor= "let edu of miEducacion" cdkDrag >
+        <ul class="botones">
+            <li class="orden">
+              <button type="button" class="btn btn-sm btn-link">
+                <i class="fa fa-pencil-square"></i>
+              </button>
+            </li>
+            <li class="orden">
+              <button class="btn btn-link btn-sm" color=#6c757d>
+                <i class="fa fa-square-xmark"></i>
+              </button>
+            </li>
+        </ul>
+        <h3>{{edu.name}}</h3>
+        <span class="education-date">{{edu.dates.start}} - {{edu.dates.finish}}</span>
+        <h4>{{edu.career}}</h4>
+        <p>{{edu.observations}}</p>
+    </div>
 </div>
     <!-- End .education-block -->
 

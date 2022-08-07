@@ -25,7 +25,8 @@
 }
 
 .modal-header{
-	background: rgba(33,125,187,0.8) ;
+	background-color: rgba(33, 37, 41);
+	color: #fff;
 }
 .modal-body,.modal-footer {
 	background: #dcd9d9;

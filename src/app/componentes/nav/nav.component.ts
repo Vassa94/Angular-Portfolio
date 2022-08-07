@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AutorizacionService } from 'src/app/servicios/autorizacion.service';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -8,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  constructor() { }
+  
 
   ngOnInit(): void {
   }
@@ -18,6 +21,26 @@ export class NavComponent implements OnInit {
         this.isCollapse = foo === false ? true : false; 
     }
   
+  loggedIn = false;
+  loggedUser:any = null;
+  constructor(private autorizacionService: AutorizacionService) {
+    this.autorizacionService.isLogged()
+      .subscribe((result)=>{
+        if(result && result.uid) {
+          this.loggedIn = true
+          setTimeout(async ()=>{
+            this.loggedUser = (await this.autorizacionService.getUser().currentUser).email
+          }, 500)
+        } else {
+          this.loggedIn = false
+        }
+      }, (error)=>{
+        this.loggedIn = false
+      })
+  }
+  logout(){
+    this.autorizacionService.logout()
+  }
  
 
 

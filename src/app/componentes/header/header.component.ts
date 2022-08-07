@@ -39,6 +39,14 @@ export class HeaderComponent implements OnInit {
       return `with: ${reason}`;
     }
   }
+
+  
+  isShow = false;
+ 
+  toggleDisplay() {
+    this.isShow = !this.isShow;
+  }
+
 }
   
   

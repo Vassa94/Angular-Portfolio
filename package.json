@@ -15,6 +15,7 @@
     "@angular/common": "^14.1.1",
     "@angular/compiler": "^14.1.1",
     "@angular/core": "^14.1.1",
+    "@angular/fire": "^7.4.1",
     "@angular/forms": "^14.1.1",
     "@angular/localize": "^14.1.1",
     "@angular/material": "^14.1.1",
@@ -31,9 +32,11 @@
     "@types/scriptjs": "^0.0.2",
     "angular-bootstrap-md": "^13.0.0",
     "bootstrap": "^5.2.0",
+    "firebase": "^9.9.2",
     "mdb-ui-kit": "^4.4.0",
     "rxjs": "~7.5.0",
     "scriptjs": "^2.5.9",
+    "sweetalert2": "^11.4.26",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
