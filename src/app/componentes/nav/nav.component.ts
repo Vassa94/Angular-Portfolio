@@ -42,11 +42,4 @@ export class NavComponent implements OnInit {
     this.autorizacionService.logout()
   }
  
-
-
-  
-
-
-
-
 }

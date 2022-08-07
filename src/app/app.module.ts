@@ -29,6 +29,7 @@ import { ContactoComponent } from './componentes/contacto/contacto.component';
 import { NavComponent } from './componentes/nav/nav.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { RouterModule } from '@angular/router';
+import { FooterComponent } from './componentes/footer/footer.component';
 
 
 
@@ -47,7 +48,8 @@ import { RouterModule } from '@angular/router';
     SkillsComponent,
     ContactoComponent,
     NavComponent,
-    LoginComponent
+    LoginComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
