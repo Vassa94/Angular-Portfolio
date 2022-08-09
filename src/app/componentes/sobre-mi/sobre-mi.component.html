@@ -1,36 +1,27 @@
 <div id="about">
-    <div>
-                        <ul class="botones">
-                      <li class="orden">
-                         <button 
-                            type="button" 
-                            class="btn edicion btn-outline-secondary"
-                            (click)="openVerticallyCentered(content)"
-                            ><i class="fa fa-pencil-square"></i>
-                        </button>
-                        </li>
-                        <li class="orden">
-                            <button type="button" class="btn edicion btn-outline-secondary">
-                                <i class="fa-solid fa-square-xmark"></i>
-                            </button>
-                        </li> 
-                     </ul>
-        </div> 
-        &nbsp;  
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <h2 class="heading">Sobre mi</h2>
-                
-                    <img class="perfil" src="https://media-exp1.licdn.com/dms/image/C4D03AQHgxdc5uMAjiw/profile-displayphoto-shrink_800_800/0/1649944767427?e=1665619200&v=beta&t=pOt_N715DHs6--nsurk-E8zNxN_DOa74_lXo1yfDUpI"  alt="Avatar">
-                
-            </div>
-            <div class="col-md-8">
-                <p>{{miInfo}}</p>
-            </div>
-
-        </div>
+  <h2 class="titulo heading" style="a" >Sobre mi</h2>
+  <ul class="botones">
+    <li class="orden">
+      <button type="button" class="btn edicion btn-outline-secondary" (click)="openVerticallyCentered(content)">
+        <i class="fa fa-pencil-square"></i>
+      </button>
+    </li>
+    <li class="orden">
+      <button type="button" class="btn edicion btn-outline-secondary">
+        <i class="fa-solid fa-square-xmark"></i>
+      </button>
+    </li>
+  </ul>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <img class="perfil" src="https://media-exp1.licdn.com/dms/image/C4D03AQHgxdc5uMAjiw/profile-displayphoto-shrink_800_800/0/1649944767427?e=1665619200&v=beta&t=pOt_N715DHs6--nsurk-E8zNxN_DOa74_lXo1yfDUpI" alt="Avatar">
+      </div>
+      <div class="col-md-8">
+        <p>{{miInfo}}</p>
+      </div>
     </div>
+  </div>
 </div>
 
 <!-- Modal -->

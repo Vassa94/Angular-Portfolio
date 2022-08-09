@@ -21,7 +21,13 @@
 
 .perfil {
 	border-radius: 80%;
-	float: right;
+	float: center;
 	width: 200px;
 	display: inline-block;
+	;
+}
+
+.titulo {
+	display: flex;
+	justify-content: center;
 }
