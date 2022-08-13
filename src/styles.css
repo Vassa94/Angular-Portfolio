@@ -8,6 +8,10 @@ body.active {
     z-index:-1
 }
 
+.logout {
+    display: none;
+}
+
 .edicion {
     
     border-radius: 2rem;

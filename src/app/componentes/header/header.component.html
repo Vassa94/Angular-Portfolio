@@ -4,14 +4,13 @@
         <ul class="botones">
             <li class="orden">
                 <button 
+                    *ngIf="loG()"
                     type="button" 
                     class="btn edicion btn-outline-secondary"
                     (click)="open(content)"
+                    
                     ><i class="fa fa-pencil-square"></i></button>
             </li>
-            <li class="orden">
-                <button [hidden]="isShow" type="button" class="btn edicion btn-outline-secondary" (click)="toggleDisplay()" ><i class="fa-solid fa-eye"></i></button>
-            </li> 
         </ul>
     </div>
     

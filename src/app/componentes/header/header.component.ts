@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AppComponent } from 'src/app/app.component';
 
 
 @Component({
@@ -13,13 +14,18 @@ export class HeaderComponent implements OnInit {
 
   closeResult: any;
 
-  constructor(private datosPortfolio:PortfolioService,private modalService:NgbModal) { }
+  constructor(private datosPortfolio:PortfolioService,private modalService:NgbModal , private appComponent:AppComponent) { }
 
   ngOnInit(): void {
     this.datosPortfolio.obtenerDatos().subscribe(data =>{
       this.miPortfolio=data;
     });
     
+  }
+
+  public loG (){
+    
+    return this.appComponent.loggedIn;
   }
   
   open(content) {
@@ -40,12 +46,6 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  
-  isShow = false;
- 
-  toggleDisplay() {
-    this.isShow = !this.isShow;
-  }
 
 }
   
