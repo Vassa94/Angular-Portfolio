@@ -4,8 +4,8 @@
                 <ng-container *ngFor="let skil of skills">
                     <li >
                         {{skil}}
-                        <button type="button" class="btn btn-sm btn-link logged">
-                            <i class="fa fa-square-xmark"></i>
+                        <button type="button" class="btn btn-sm btn-link"*ngIf="loG()">
+                            <i class="fa fa-pencil-square"></i>
                         </button>
                     </li>
 

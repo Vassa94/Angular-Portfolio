@@ -1,15 +1,19 @@
 <div id="experience" class="background-alt" cdkDropList (cdkDropListDropped)="drop($event)">
   <h2 class="heading"> Experiencia </h2>
-  <ul class="botones">
+  
+  <!-- Un botón de edición que se mostrará solo si el usuario ha iniciado sesión. -->
+  <ul class="botones" *ngIf="loG()">
     <li class="orden">
       <button type="button" class="btn edicion btn-outline-secondary">
         <i class="fa fa-square-plus"></i>
       </button>
     </li>
   </ul>
+  
+  <!-- Un bucle que creará un nuevo bloque para cada elemento de la matriz `miExperiencia`. -->
   <div *ngFor="let exp of miExperiencia" id="experience-timeline" cdkDrag>
     <div class="vtimeline-point">
-      <ul class="botones">
+      <ul class="botones" *ngIf="loG()">
         <li class="orden">
           <button type="button" class="btn btn-sm btn-link">
             <i class="fa fa-pencil-square"></i>
