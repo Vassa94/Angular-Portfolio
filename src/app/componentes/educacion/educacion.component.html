@@ -1,14 +1,18 @@
 <div id="education" cdkDropList (cdkDropListDropped)="drop($event)">
     <h2 class="heading">Educación</h2>
-    <ul class="edicion botones ">
+    
+    <!-- Un botón para agregar un nuevo bloque educativo. -->
+    <ul class="edicion botones " *ngIf="loG()">
         <li class="orden">
           <button type="button" class="btn edicion btn-outline-secondary">
             <i class="fa fa-square-plus"></i>
           </button>
         </li>
     </ul>
+    
+    <!-- Un bucle que itera sobre el arreglo `miEducacion` y crea un bloque para cada elemento del arreglo. -->
     <div class="education-block" *ngFor= "let edu of miEducacion" cdkDrag >
-        <ul class="botones">
+        <ul class="botones" *ngIf="loG()">
             <li class="orden">
               <button type="button" class="btn btn-sm btn-link">
                 <i class="fa fa-pencil-square"></i>
