@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-sobre-mi',
@@ -10,7 +11,7 @@ import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export class SobreMiComponent implements OnInit {
   miInfo:any;
   closeResult: any;
-  constructor(private datosPortfolio:PortfolioService,private modalService:NgbModal) { }
+  constructor(private datosPortfolio:PortfolioService,private modalService:NgbModal, private appComponent:AppComponent) { }
 
   ngOnInit(): void {
     this.datosPortfolio.obtenerDatos().subscribe(data =>{
@@ -43,5 +44,11 @@ export class SobreMiComponent implements OnInit {
       return `with: ${reason}`;
     }
   }
+
+  public loG (){
+    
+    return this.appComponent.loggedIn;
+  }
+
 
 }

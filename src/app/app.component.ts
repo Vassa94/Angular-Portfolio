@@ -34,6 +34,8 @@ export class AppComponent {
   loggedIn = false;
   loggedUser:any = null;
 
+
+
 constructor(private autorizacionService: AutorizacionService) {
     this.autorizacionService.isLogged()
       .subscribe((result)=>{

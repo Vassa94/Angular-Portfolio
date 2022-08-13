@@ -1,8 +1,13 @@
-<div id="about">
-  <h2 class="titulo heading" style="a" >Sobre mi</h2>
+<!-- Un condicional que comprueba si el usuario ha iniciado sesión. Si el usuario ha iniciado sesión,
+mostrará los botones de edición y eliminación. -->
+<div *ngIf="loG()" style="display: block; padding-top: 20px">
   <ul class="botones">
     <li class="orden">
-      <button type="button" class="btn edicion btn-outline-secondary" (click)="openVerticallyCentered(content)">
+      <button
+        type="button"
+        class="btn edicion btn-outline-secondary"
+        (click)="openVerticallyCentered(content)"
+      >
         <i class="fa fa-pencil-square"></i>
       </button>
     </li>
@@ -12,49 +17,68 @@
       </button>
     </li>
   </ul>
+</div>
+
+<!-- El código HTML para la sección Acerca de mi. -->
+<div id="about">
+  <h2 class="heading" style="a">Sobre mi</h2>
   <div class="container">
     <div class="row">
       <div class="col-md-4">
-        <img class="perfil" src="https://media-exp1.licdn.com/dms/image/C4D03AQHgxdc5uMAjiw/profile-displayphoto-shrink_800_800/0/1649944767427?e=1665619200&v=beta&t=pOt_N715DHs6--nsurk-E8zNxN_DOa74_lXo1yfDUpI" alt="Avatar">
+        <img
+          class="perfil"
+          src="https://media-exp1.licdn.com/dms/image/C4D03AQHgxdc5uMAjiw/profile-displayphoto-shrink_800_800/0/1649944767427?e=1665619200&v=beta&t=pOt_N715DHs6--nsurk-E8zNxN_DOa74_lXo1yfDUpI"
+          alt="Avatar"
+        />
       </div>
       <div class="col-md-8">
-        <p>{{miInfo}}</p>
+        <p>{{ miInfo }}</p>
       </div>
     </div>
   </div>
 </div>
 
 <!-- Modal -->
-    <!-- Modal content-->
-    <ng-template #content let-modal>
-      <div class="modal-header"  >
-        <h2 class="modal-title">Sobre Mi</h2>
-        <button 
-            type="button" 
-            class="close edicion" 
-            data-dismiss="modal"
-            (click)="modal.dismiss('Cross click')"
-            >
-                <i class="fa fa-times"></i>
-        </button>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h2 class="modal-title">Sobre Mi</h2>
+    <button
+      type="button"
+      class="close edicion"
+      data-dismiss="modal"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <i class="fa fa-times"></i>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="firstname">Descripcion</label>
+        <div>
+          <input
+            placeholder="{{ miPortfolio.miInfo }}"
+            id="firstname"
+            class="form-control"
+          />
+        </div>
+        <label for="firstname">Imagen de perfil</label>
+        <div>
+          <input placeholder="URL" id="firstname" class="form-control" />
+        </div>
       </div>
-      <div class="modal-body">
-        <form>
-            <div class="form-group" >
-                <label for="firstname">Descripcion</label>
-                <div>
-                    <input placeholder="{{miPortfolio.miInfo}}" id="firstname" class="form-control" >
-                </div>
-                <label for="firstname">Imagen de perfil</label>
-                <div>
-                    <input placeholder="URL" id="firstname" class="form-control" >
-                </div>
-            </div>            
-        </form>        
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-success btn-modal" (click)="modal.close('Save click')">Guardar cambios</button>
-      </div>
-    </ng-template>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-success btn-modal"
+      (click)="modal.close('Save click')"
+    >
+      Guardar cambios
+    </button>
+  </div>
+</ng-template>
 
 <app-experiencia></app-experiencia>

@@ -16,9 +16,12 @@ export class AutorizacionService {
 
   constructor(private angularFireAuth: AngularFireAuth, private router: Router) {
     this.isLogged();
+    
   }
+  loggedIn=false;
 
 
+  
   
   public login = (email, password) => {
     this.angularFireAuth.signInWithEmailAndPassword(email, password)
@@ -34,6 +37,7 @@ export class AutorizacionService {
       }) .catch((error) => {
         Swal.fire('Ops...', `Ha ocurrido un ${error}`, 'error');
       });
+      
   }
   public isLogged() {
     return this.angularFireAuth.authState;
