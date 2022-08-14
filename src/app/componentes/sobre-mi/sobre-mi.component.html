@@ -1,13 +1,9 @@
-<!-- Un condicional que comprueba si el usuario ha iniciado sesión. Si el usuario ha iniciado sesión,
-mostrará los botones de edición y eliminación. -->
-<div *ngIf="loG()" style="display: block; padding-top: 20px">
+
+<!-- botones de edición que solo se muestran si el usuario ha iniciado sesión. -->
+<div *ngIf="loG()" style="display: block;padding-top: 20px;padding-bottom: 0px;height: 60px;">
   <ul class="botones">
     <li class="orden">
-      <button
-        type="button"
-        class="btn edicion btn-outline-secondary"
-        (click)="openVerticallyCentered(content)"
-      >
+      <button type="button" class="btn edicion btn-outline-secondary" (click)="openVerticallyCentered(content)">
         <i class="fa fa-pencil-square"></i>
       </button>
     </li>
@@ -19,20 +15,22 @@ mostrará los botones de edición y eliminación. -->
   </ul>
 </div>
 
-<!-- El código HTML para la sección Acerca de mi. -->
-<div id="about">
-  <h2 class="heading" style="a">Sobre mi</h2>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <img
-          class="perfil"
-          src="https://media-exp1.licdn.com/dms/image/C4D03AQHgxdc5uMAjiw/profile-displayphoto-shrink_800_800/0/1649944767427?e=1665619200&v=beta&t=pOt_N715DHs6--nsurk-E8zNxN_DOa74_lXo1yfDUpI"
-          alt="Avatar"
-        />
-      </div>
-      <div class="col-md-8">
-        <p>{{ miInfo }}</p>
+<!-- Sección Acerca de mi. -->
+<div id="about" style="text-align: center;">
+  <div class="sobre-mi">
+    <h2 class="heading">Sobre mi</h2>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-3">
+          <img class="perfil"
+            src="https://media-exp1.licdn.com/dms/image/C4D03AQHgxdc5uMAjiw/profile-displayphoto-shrink_800_800/0/1649944767427?e=1665619200&v=beta&t=pOt_N715DHs6--nsurk-E8zNxN_DOa74_lXo1yfDUpI"
+            alt="Avatar" />
+        </div>
+        <div class="col-md-8" style="padding-top:40px ;">
+          <p>{{ miInfo }}</p>
+        </div>
       </div>
     </div>
   </div>
@@ -43,12 +41,7 @@ mostrará los botones de edición y eliminación. -->
 <ng-template #content let-modal>
   <div class="modal-header">
     <h2 class="modal-title">Sobre Mi</h2>
-    <button
-      type="button"
-      class="close edicion"
-      data-dismiss="modal"
-      (click)="modal.dismiss('Cross click')"
-    >
+    <button type="button" class="close edicion" data-dismiss="modal" (click)="modal.dismiss('Cross click')">
       <i class="fa fa-times"></i>
     </button>
   </div>
@@ -57,11 +50,7 @@ mostrará los botones de edición y eliminación. -->
       <div class="form-group">
         <label for="firstname">Descripcion</label>
         <div>
-          <input
-            placeholder="{{ miPortfolio.miInfo }}"
-            id="firstname"
-            class="form-control"
-          />
+          <input placeholder="{{ miPortfolio.miInfo }}" id="firstname" class="form-control" />
         </div>
         <label for="firstname">Imagen de perfil</label>
         <div>
@@ -71,11 +60,7 @@ mostrará los botones de edición y eliminación. -->
     </form>
   </div>
   <div class="modal-footer">
-    <button
-      type="button"
-      class="btn btn-success btn-modal"
-      (click)="modal.close('Save click')"
-    >
+    <button type="button" class="btn btn-success btn-modal" (click)="modal.close('Save click')">
       Guardar cambios
     </button>
   </div>

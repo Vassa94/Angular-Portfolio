@@ -1,6 +1,20 @@
  <div id="contact">
         <h2>Contacto</h2>
         <div id="contact-form">
+            <form method="POST" action="https://formspree.io/f/xvoypvzn">
+                <input type="hidden" name="_subject" value="Contact request from personal website">
+                <input type="email" name="_replyto" placeholder="Email" required="">
+                <textarea name="message" placeholder="Mensaje" required=""></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+        
+    </div>
+
+    <app-footer></app-footer>
+
+
+    <!-- <div id="contact-form">
             <form action="https://formspree.io/f/xvoypvzn" method="POST">
                 <label>
                     <input type="hidden" name="_subject" value="Contact request from personal website" />
@@ -11,7 +25,4 @@
                 </label>
                 <button type="submit">Enviar</button>
             </form>
-        </div>
-    </div>
-
-    <app-footer></app-footer>
+        </div>-->

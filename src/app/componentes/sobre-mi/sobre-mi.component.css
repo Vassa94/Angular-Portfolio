@@ -21,13 +21,19 @@
 
 .perfil {
 	border-radius: 80%;
-	float: center;
 	width: 200px;
-	display: inline-block;
-	;
+	
 }
 
 .titulo {
 	display: flex;
 	justify-content: center;
+}
+
+.sobre-mi{
+	
+	padding-top: 20px;
+	padding-left: 50px;
+	padding-right: 80px;
+	padding-bottom: 20px
 }
