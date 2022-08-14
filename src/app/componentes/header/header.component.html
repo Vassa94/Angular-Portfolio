@@ -1,81 +1,96 @@
+
+<!-- El encabezado de la página. -->
 <div id="lead">
-
-    <div class="botones">
-        <ul class="botones">
-            <li class="orden">
-                <button 
-                    *ngIf="loG()"
-                    type="button" 
-                    class="btn edicion btn-outline-secondary"
-                    (click)="open(content)"
-                    
-                    ><i class="fa fa-pencil-square"></i></button>
-            </li>
-        </ul>
-    </div>
-    
-
-
-    <div id="lead-content">
-        <h1> {{miPortfolio.name}} {{miPortfolio.apellido}} </h1>
-        <h2> {{miPortfolio.position}} </h2>
-        <!--<a href="#" class="btn-rounded-white">Curriculum</a>  ver agregar curriculum-->
-    </div >
-    <!-- End #lead-content -->
-
-    <div id="lead-overlay"></div>
-
-
-
-    <div id="lead-down">
-        <span>
-            <i class="fa-solid fa-chevron-down" aria-hidden="true" >
-                <a class="nav-link" href="#experiencia"  ></a>
-            </i>
-        </span>
-    </div>
-    <!-- End #lead-down -->
-</div>
-
-
-
-<!-- Modal -->
-    <!-- Modal content-->
-    <ng-template #content let-modal>
-      <div class="modal-header"  >
-        <h2 class="modal-title">Datos personales</h2>
-        <button 
-            type="button" 
-            class="close edicion" 
-            data-dismiss="modal"
-            (click)="modal.dismiss('Cross click')"
-            >
-                <i class="fa fa-times"></i>
+  <div class="botones">
+    <ul class="botones">
+      <li class="orden">
+        <button
+          *ngIf="loG()"
+          type="button"
+          class="btn edicion btn-outline-secondary"
+          (click)="open(content)"
+        >
+          <i class="fa fa-pencil-square"></i>
         </button>
-      </div>
-      <div class="modal-body">
-        <form>
-            <div class="form-group" >
-                <label for="firstname">Nombre</label>
-                <div>
-                    <input placeholder="{{miPortfolio.name}}" id="firstname" class="form-control" >
-                </div>
-                <label for="firstname">Apellido</label>
-                <div>
-                    <input placeholder="{{miPortfolio.apellido}}" id="firstname" class="form-control" >
-                </div>
-                <label for="firstname">Titulo</label>
-                <div>
-                    <input placeholder="{{miPortfolio.position}}" id="firstname" class="form-control" >
-                </div>
-            </div>            
-        </form>        
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-success btn-modal" (click)="modal.close('Save click')">Guardar cambios</button>
-      </div>
-    </ng-template>
+      </li>
+    </ul>
+  </div>
 
-    <app-sobre-mi></app-sobre-mi>
-
+  <!-- El contenido de la sección principal. -->
+  <div id="lead-content">
+    <h1>{{ miPortfolio.name }} {{ miPortfolio.apellido }}</h1>
+    <h2>{{ miPortfolio.position }}</h2>
+    <!--<a href="#" class="btn-rounded-white">Curriculum</a>  ver agregar curriculum-->
+  </div>
   
+
+  <!-- Un div que se usa para crear un fondo para la sección principal. -->
+    
+  <div id="lead-overlay"><iframe src='https://my.spline.design/lathegradientscopy-a2c88ce52193cf8d6819e88c650fe15b/' frameborder='0' width='100%' height='100%'></iframe></div>
+
+  <!-- Un botón que te lleva a la siguiente sección. -->
+  <div id="lead-down">
+    <span>
+      <i class="fa-solid fa-chevron-down" aria-hidden="true">
+        <a class="nav-link" href="#experiencia"></a>
+      </i>
+    </span>
+  </div>
+ </div>
+
+
+<!-- Una plantilla para el modal. -->
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h2 class="modal-title">Datos personales</h2>
+    <button
+      type="button"
+      class="close edicion"
+      data-dismiss="modal"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <i class="fa fa-times"></i>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="firstname">Nombre</label>
+        <div>
+          <input
+            placeholder="{{ miPortfolio.name }}"
+            id="firstname"
+            class="form-control"
+          />
+        </div>
+        <label for="firstname">Apellido</label>
+        <div>
+          <input
+            placeholder="{{ miPortfolio.apellido }}"
+            id="firstname"
+            class="form-control"
+          />
+        </div>
+        <label for="firstname">Titulo</label>
+        <div>
+          <input
+            placeholder="{{ miPortfolio.position }}"
+            id="firstname"
+            class="form-control"
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-success btn-modal"
+      (click)="modal.close('Save click')"
+    >
+      Guardar cambios
+    </button>
+  </div>
+</ng-template>
+
+<app-sobre-mi></app-sobre-mi>
