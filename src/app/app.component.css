@@ -1,3 +1,5 @@
+
+
 .navbar-nav {
 	--bs-nav-link-color:#fff ;
 	background: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
@@ -11,7 +13,7 @@
     margin-bottom: 0;
     list-style: none;
     float: right;
-    ;
+    flex-direction: row;
 }
 .mr-auto, .mx-auto {
     margin-right: auto;
@@ -44,6 +46,3 @@
   display: none; /* You can play on opacity for nice transitions*/
 }
 
-.edicion-hide {
-  display: none;
-}
