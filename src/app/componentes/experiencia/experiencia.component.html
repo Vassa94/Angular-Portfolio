@@ -1,6 +1,6 @@
 <div id="experience" class="background-alt" cdkDropList (cdkDropListDropped)="drop($event)">
   <h2 class="heading"> Experiencia </h2>
-  
+
   <!-- Un botón de edición que se mostrará solo si el usuario ha iniciado sesión. -->
   <ul class="botones" *ngIf="loG()">
     <li class="orden">
@@ -9,9 +9,12 @@
       </button>
     </li>
   </ul>
-  
+
   <!-- Un bucle que creará un nuevo bloque para cada elemento de la matriz `miExperiencia`. -->
-  <div *ngFor="let exp of miExperiencia" id="experience-timeline" cdkDrag>
+  <div *ngFor="let exp of miExperiencia" 
+        id="experience-timeline" 
+        
+        cdkDrag>
     <div class="vtimeline-point">
       <ul class="botones" *ngIf="loG()">
         <li class="orden">
@@ -25,7 +28,7 @@
           </button>
         </li>
       </ul>
-      <div class="vtimeline-icon"  >
+      <div class="vtimeline-icon">
         <i class="fa-solid fa-location-dot"></i>
       </div>
       <div class="vtimeline-block">
@@ -34,10 +37,17 @@
           <h3>{{exp.name}}</h3>
           <h4>{{exp.position}}</h4>
           <p>{{exp.description}}</p>
+          <div class="example-handle" cdkDragHandle style="text-align: end;" >
+            <svg width="24px" fill="#3498db" viewBox="0 0 24 24">
+              <path d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"></path>
+              <path d="M0 0h24v24H0z" fill="none"></path>
+            </svg>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 
 <app-educacion></app-educacion>

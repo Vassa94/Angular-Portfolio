@@ -23,7 +23,7 @@ export class AppComponent {
 
   }
   
-  isCollapse = false;   // estado del menu
+  isCollapse = true;   // estado del menu
   toggleState(): void { // manejador del evento menu
         let foo = this.isCollapse;
         this.isCollapse = foo === false ? true : false; 

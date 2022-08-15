@@ -19,8 +19,13 @@ export class ExperienciaComponent implements OnInit {
     });
   }
 
+  
+
   drop(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.miExperiencia, event.previousIndex, event.currentIndex);
+    if (this.loG()){
+      moveItemInArray(this.miExperiencia, event.previousIndex, event.currentIndex);
+      console.log(this.loG());
+    }
   }
 
   public loG (){
