@@ -46,3 +46,22 @@
   display: none; /* You can play on opacity for nice transitions*/
 }
 
+.scrollup {
+  z-index: 10;
+    position: -webkit-sticky;
+    position: fixed;
+    position: -ms-device-fixed;
+    bottom: 20px;
+    float: right;
+    width: 110px;
+    padding: 5px;
+    border-radius: 3px;
+    right: -40px;
+    animation: ScrollUpButton__fadein--3nYOh 2s;
+    -moz-animation: ScrollUpButton__fadein--3nYOh 2s;
+    -webkit-animation: ScrollUpButton__fadein--3nYOh 2s;
+    -o-animation: ScrollUpButton__fadein--3nYOh 2s;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+

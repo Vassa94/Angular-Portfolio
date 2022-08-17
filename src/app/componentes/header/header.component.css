@@ -32,3 +32,13 @@
 	background: #dcd9d9;
 }
 
+#abajo{
+	position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 50;
+    bottom: 15px;
+    color: #fff;
+}
