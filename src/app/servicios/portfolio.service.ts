@@ -12,5 +12,15 @@ export class PortfolioService {
 
   obtenerDatos ():Observable<any> {
     return this.http.get("./assets/data/data.json");
+    //return this.http.get("http://localhost:8080/personas/traer");
   }
+
+  getHeader ():Observable<any> {
+    return this.http.get("http://localhost:8080/personas/traer/1");
+  }
+
+  putHeader ():Observable<any> {
+
+  }
+
 }

@@ -17,8 +17,10 @@ export class HeaderComponent implements OnInit {
   constructor(private datosPortfolio:PortfolioService,private modalService:NgbModal , private appComponent:AppComponent) { }
 
   ngOnInit(): void {
-    this.datosPortfolio.obtenerDatos().subscribe(data =>{
+    //this.datosPortfolio.obtenerDatos().subscribe(data =>{
+      this.datosPortfolio.getHeader().subscribe(data =>{
       this.miPortfolio=data;
+      console.log(this.miPortfolio);
     });
     
   }
@@ -36,6 +38,7 @@ export class HeaderComponent implements OnInit {
     });
   }
 
+  
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';

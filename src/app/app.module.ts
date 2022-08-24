@@ -35,6 +35,7 @@ import { FooterComponent } from './componentes/footer/footer.component';
 
 
 
+
   
 
 @NgModule({
@@ -49,7 +50,8 @@ import { FooterComponent } from './componentes/footer/footer.component';
     ContactoComponent,
     NavComponent,
     LoginComponent,
-    FooterComponent
+    FooterComponent,
+   
   ],
   imports: [
     BrowserModule,
