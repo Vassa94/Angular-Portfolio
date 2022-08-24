@@ -17,9 +17,9 @@
   </div>
 
   <!-- El contenido de la sección principal. -->
-  <div id="lead-content">
-    <h1>{{ miPortfolio.name }} {{ miPortfolio.apellido }}</h1>
-    <h2>{{ miPortfolio.position }}</h2>
+  <div id="lead-content"  >
+    <h1>{{ miPortfolio.nombre}} {{ miPortfolio.apellido }}</h1>
+    <h2>{{ miPortfolio.titulo }}</h2>
     <!--<a href="#" class="btn-rounded-white">Curriculum</a>  ver agregar curriculum-->
   </div>
   
@@ -64,11 +64,11 @@
   </div>
   <div class="modal-body">
     <form>
-      <div class="form-group">
+      <div class="form-group" >
         <label for="firstname">Nombre</label>
         <div>
           <input
-            placeholder="{{ miPortfolio.name }}"
+            placeholder="{{ miPortfolio.nombre }}"
             id="firstname"
             class="form-control"
           />
@@ -84,7 +84,7 @@
         <label for="firstname">Titulo</label>
         <div>
           <input
-            placeholder="{{ miPortfolio.position }}"
+            placeholder="{{ miPortfolio.titulo }}"
             id="firstname"
             class="form-control"
           />
