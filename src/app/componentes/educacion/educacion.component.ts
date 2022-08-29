@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import { AppComponent } from 'src/app/app.component';
+import { modalConfigDefaults } from 'angular-bootstrap-md/lib/free/modals/modal.options';
 
 @Component({
   selector: 'app-educacion',
@@ -13,8 +14,8 @@ export class EducacionComponent implements OnInit {
   constructor(private datosPortfolio:PortfolioService, private appComponent:AppComponent) { }
 
   ngOnInit(): void {
-    this.datosPortfolio.obtenerDatos().subscribe(data =>{
-      this.miEducacion=data.education;
+    this.datosPortfolio.getEduc().subscribe(data =>{
+      this.miEducacion=data;
     })
   }
 
@@ -25,6 +26,15 @@ export class EducacionComponent implements OnInit {
   public loG (){
     
     return this.appComponent.loggedIn;
+  }
+
+  deleteBlock(id){
+     this.datosPortfolio.deleteEduc(id);
+     this.ngOnInit();
+  }
+
+  crearBloque(educ){
+    
   }
 
 }

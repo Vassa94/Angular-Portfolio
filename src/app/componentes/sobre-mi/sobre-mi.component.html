@@ -25,11 +25,11 @@
         <div class="col-md-1"></div>
         <div class="col-md-3">
           <img class="perfil"
-            src="https://media-exp1.licdn.com/dms/image/C4D03AQHgxdc5uMAjiw/profile-displayphoto-shrink_800_800/0/1649944767427?e=1665619200&v=beta&t=pOt_N715DHs6--nsurk-E8zNxN_DOa74_lXo1yfDUpI"
+            [src]="miInfo.imgUrl"
             alt="Avatar" />
         </div>
         <div class="col-md-8" style="padding-top:40px ;">
-          <p>{{ miInfo }}</p>
+          <p>{{ miInfo.about }}</p>
         </div>
       </div>
     </div>
@@ -48,19 +48,19 @@
   <div class="modal-body">
     <form>
       <div class="form-group">
-        <label for="firstname">Descripcion</label>
+        <label for="descripcion">Descripcion</label>
         <div>
-          <input placeholder="{{ miPortfolio.miInfo }}" id="firstname" class="form-control" />
+          <textarea placeholder="{{ miInfo.about }}" id="descripcion" class="form-control"></textarea>
         </div>
         <label for="firstname">Imagen de perfil</label>
         <div>
-          <input placeholder="URL" id="firstname" class="form-control" />
+          <input placeholder="{{miInfo.imgUrl}}" id="firstname" class="form-control" />
         </div>
       </div>
     </form>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-success btn-modal" (click)="modal.close('Save click')">
+    <button type="button" class="btn btn-success btn-modal" (click)="save('')">
       Guardar cambios
     </button>
   </div>

@@ -16,7 +16,7 @@
             <div class="row">
                 <div class="project shadow-large">
                     <div class="project-image">
-                        <img [src]="proyecto.image" width="300" height="300"  />
+                        <img [src]="proyecto.imgUrl" width="300" height="300"  />
                     </div>
                     <ul class="botones"*ngIf="loG()">
                         <li class="orden">
@@ -32,9 +32,9 @@
                     </ul>
                     
                     <div class="project-info">
-                        <h3>{{proyecto.name}}</h3>
-                        <p>{{proyecto.description}}</p>
-                        <a [href]="proyecto.link" target="_blank">Ver pagina</a>
+                        <h3>{{proyecto.nombre}}</h3>
+                        <p>{{proyecto.descripcion}}</p>
+                        <a [href]= "proyecto.linkUrl" target="_blank">Ver pagina</a>
                     </div>
                 </div>
             </div>

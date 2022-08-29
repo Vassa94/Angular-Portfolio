@@ -19,15 +19,15 @@
               </button>
             </li>
             <li class="orden">
-              <button class="btn btn-link btn-sm" color=#6c757d>
+              <button class="btn btn-link btn-sm" color=#6c757d (click)="deleteBlock(edu.id)">
                 <i class="fa fa-square-xmark"></i>
               </button>
             </li>
         </ul>
-        <h3>{{edu.name}}</h3>
-        <span class="education-date">{{edu.dates.start}} - {{edu.dates.finish}}</span>
-        <h4>{{edu.career}}</h4>
-        <p>{{edu.observations}}</p>
+        <h3>{{edu.nombre}}</h3>
+        <span class="education-date">{{edu.fechaInicio}} - {{edu.fechaFin}}</span>
+        <h4>{{edu.titulo}}</h4>
+        <p>{{edu.descripcion}}</p>
         <div class="example-handle" cdkDragHandle style="text-align: end;" >
           <svg width="24px" fill="#3498db" viewBox="0 0 24 24" *ngIf="loG()">
             <path d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"></path>
@@ -36,6 +36,34 @@
         </div>
     </div>
 </div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h2 class="modal-title">Educacion</h2>
+    <button type="button" class="close edicion" data-dismiss="modal" (click)="modal.dismiss('Cross click')">
+      <i class="fa fa-times"></i>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="firstname">Descripcion</label>
+        <div>
+          <input placeholder="{{ miInfo.about }}" id="firstname" class="form-control" />
+        </div>
+        <label for="firstname">Imagen de perfil</label>
+        <div>
+          <input placeholder="{{miInfo.imgUrl}}" id="firstname" class="form-control" />
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-success btn-modal" (click)="modal.close('Save click')">
+      Guardar cambios
+    </button>
+  </div>
+</ng-template>
 
 <app-proyectos></app-proyectos>
 
