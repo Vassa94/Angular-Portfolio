@@ -14,8 +14,8 @@ export class ExperienciaComponent implements OnInit {
   constructor(private datosPortfolio:PortfolioService, private appComponent:AppComponent) { }
 
   ngOnInit(): void {
-    this.datosPortfolio.obtenerDatos().subscribe(data =>{
-      this.miExperiencia=data.jobs;
+    this.datosPortfolio.getExp().subscribe(data =>{
+      this.miExperiencia=data;
     });
   }
 

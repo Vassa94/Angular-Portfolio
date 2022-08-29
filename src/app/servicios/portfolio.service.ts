@@ -19,7 +19,29 @@ export class PortfolioService {
     return this.http.get("http://localhost:8080/personas/traer/1");
   }
 
-  putHeader ():Observable<any> {
+  getEduc ():Observable<any> {
+    return this.http.get("http://localhost:8080/educacion/traer");
+  }
+
+  deleteEduc (id){
+    return this.http.delete("http://localhost:8080/educacion/borrar/"+id);
+    
+  }
+
+  getExp ():Observable<any> {
+    return this.http.get("http://localhost:8080/experiencia/traer");
+  }
+
+  getSkills ():Observable<any> {
+    return this.http.get("http://localhost:8080/habilidades/traer");
+  }
+  
+  getProyec ():Observable<any> {
+    return this.http.get("http://localhost:8080/proyectos/traer");
+  }
+
+  putHeader (body) {
+     this.http.put<any>("http://localhost:8080/personas/editar/1",body);
 
   }
 
