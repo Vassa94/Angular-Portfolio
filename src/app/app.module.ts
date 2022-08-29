@@ -67,11 +67,13 @@ import { FooterComponent } from './componentes/footer/footer.component';
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
-    RouterModule
+    RouterModule,
+    
     
 
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }
