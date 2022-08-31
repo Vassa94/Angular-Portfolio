@@ -261,13 +261,15 @@ footer {
     font-size:5em;
     text-transform:uppercase;
     letter-spacing:0.05em;
-    line-height:0.9em
+    line-height:0.9em;
+    text-shadow: 0 0 6px black;
 }
 #lead-content h2 {
     color:#a0cfee;
     font-weight:500;
     font-size:2.25em;
-    margin-bottom:15px
+    margin-bottom:15px;
+    text-shadow: 0 0 6px black;
 }
 #lead-overlay {
     position:absolute;
@@ -325,7 +327,8 @@ footer {
 }
 #about p {
     color:#74808a;
-    margin:0
+    margin:0;
+    font-size: large;
 }
 #experience {
     padding:50px 15px;

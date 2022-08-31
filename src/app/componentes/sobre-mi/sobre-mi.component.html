@@ -3,13 +3,8 @@
 <div *ngIf="loG()" style="display: block;padding-top: 20px;padding-bottom: 0px;height: 60px;">
   <ul class="botones">
     <li class="orden">
-      <button type="button" class="btn edicion btn-outline-secondary" (click)="openVerticallyCentered(content)">
+      <button type="button" class="btn edicion btn-outline-secondary" (click)="edit(content)">
         <i class="fa fa-pencil-square"></i>
-      </button>
-    </li>
-    <li class="orden">
-      <button type="button" class="btn edicion btn-outline-secondary">
-        <i class="fa-solid fa-square-xmark"></i>
       </button>
     </li>
   </ul>
@@ -29,15 +24,14 @@
             alt="Avatar" />
         </div>
         <div class="col-md-8" style="padding-top:40px ;">
-          <p>{{ miInfo.about }}</p>
+          <p >{{ miInfo.about }}</p>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Modal -->
-
+<!-- Una plantilla para el modal. -->
 <ng-template #content let-modal>
   <div class="modal-header">
     <h2 class="modal-title">Sobre Mi</h2>
@@ -46,23 +40,30 @@
     </button>
   </div>
   <div class="modal-body">
-    <form>
+
+    <form [formGroup]="personaform" (ngSubmit)="saveData()">
+      
       <div class="form-group">
+        
         <label for="descripcion">Descripcion</label>
         <div>
-          <textarea placeholder="{{ miInfo.about }}" id="descripcion" class="form-control"></textarea>
+          <textarea  name="descripcion" class="form-control" formControlName="descripcion"></textarea>
         </div>
-        <label for="firstname">Imagen de perfil</label>
+        
+        <label for="imagen">Imagen de perfil</label>
         <div>
-          <input placeholder="{{miInfo.imgUrl}}" id="firstname" class="form-control" />
+          <input  name="imgUrl" class="form-control" formControlName="imgUrl"/>
         </div>
+      
+      </div>
+
+      <div class="modal-footer input-group">
+        <button type="submit" class="btn btn-success btn-modal" (click)="modal.close('Save click')">
+          Guardar cambios
+        </button>
       </div>
     </form>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-success btn-modal" (click)="save('')">
-      Guardar cambios
-    </button>
+
   </div>
 </ng-template>
 
