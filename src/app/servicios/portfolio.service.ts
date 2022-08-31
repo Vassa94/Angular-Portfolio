@@ -50,6 +50,16 @@ export class PortfolioService {
     );
   }
 
+  deleteExp(id): Observable<object> {
+    return this.http
+      .delete('http://localhost:8080/experiencia/borrar/' + id).pipe(
+        tap(() => {
+          this._refresh$.next();
+          console.log('obserbable iniciado');
+        })
+      );
+  }
+
   getSkills(): Observable<any> {
     return this.http.get('http://localhost:8080/habilidades/traer');
   }
