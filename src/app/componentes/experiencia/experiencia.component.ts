@@ -112,7 +112,10 @@ export class ExperienciaComponent implements OnInit {
     this.datosPortfolio.postExp(body).subscribe((data) => {});
     console.log(body);
   }
-
+  
+  borrarBloque(id) {
+    this.datosPortfolio.deleteExp(id).subscribe((data) => {});
+  }
 
 }
 

@@ -1,18 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 import {  ModalDismissReasons,NgbModal,NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from 'src/app/app.component';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { HttpParams } from '@angular/common/http';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-sobre-mi',
   templateUrl: './sobre-mi.component.html',
   styleUrls: ['./sobre-mi.component.css'],
 })
-export class SobreMiComponent implements OnInit {
+export class SobreMiComponent implements OnInit,OnDestroy {
   miInfo: any;
   closeResult: any;
+  suscription: Subscription;
   constructor(
     private datosPortfolio: PortfolioService,
     private modalService: NgbModal,
@@ -25,6 +27,11 @@ export class SobreMiComponent implements OnInit {
     this.datosPortfolio.refresh$.subscribe(result =>{
       this.getHeader();
     })
+  }
+
+  ngOnDestroy(): void {
+    this.suscription.unsubscribe();
+    console.log('obserbable cerrado');
   }
 
   getHeader(){
