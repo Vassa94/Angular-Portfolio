@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 import {  ModalDismissReasons,NgbModal,NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from 'src/app/app.component';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'app-sobre-mi',
@@ -12,13 +14,20 @@ export class SobreMiComponent implements OnInit {
   miInfo: any;
   closeResult: any;
   constructor(
-    //public activeModal: NgbActiveModal,
     private datosPortfolio: PortfolioService,
     private modalService: NgbModal,
     private appComponent: AppComponent
   ) {}
 
   ngOnInit(): void {
+    this.getHeader();
+
+    this.datosPortfolio.refresh$.subscribe(result =>{
+      this.getHeader();
+    })
+  }
+
+  getHeader(){
     this.datosPortfolio.getHeader().subscribe((data) => {
       this.miInfo = data;
     });
@@ -37,12 +46,22 @@ export class SobreMiComponent implements OnInit {
       );
   }
 
-  openLg(content) {
-    this.modalService.open(content, { size: 'lg' });
-  }
+  
+  personaform = new FormGroup({
+    descripcion: new FormControl(''),
+    imgUrl: new FormControl(''),
+  });
+
+
 
   openVerticallyCentered(content) {
-    this.modalService.open(content, { centered: true });
+    this.modalService.open(content, { centered: true ,size: 'lg' });
+  }
+
+  edit (content){
+    this.personaform.setValue({descripcion:this.miInfo.about,imgUrl:this.miInfo.imgUrl});
+      
+    this.openVerticallyCentered(content);
   }
 
   private getDismissReason(reason: any): string {
@@ -59,7 +78,14 @@ export class SobreMiComponent implements OnInit {
     return this.appComponent.loggedIn;
   }
 
-  save(){
-    //this.activeModal.close();
+  private saveData() {
+    const params = new HttpParams()
+      .set('nombre', this.miInfo.nombre)
+      .set('apellido', this.miInfo.apellido)
+      .set('titulo', this.miInfo.titulo)
+      .set('imgUrl', this.personaform.value.imgUrl)
+      .set('about', this.personaform.value.descripcion);
+
+    this.datosPortfolio.putHeader(params).subscribe((data) => {});
   }
 }

@@ -24,13 +24,7 @@
 
 }
 
-.modal-header{
-	background-color: rgba(33, 37, 41);
-	color: #fff;
-}
-.modal-body,.modal-footer {
-	background: #dcd9d9;
-}
+
 
 #abajo{
 	position: absolute;

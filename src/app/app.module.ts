@@ -4,7 +4,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule} from '@angular/common/http'
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDrop, DragDropModule } from '@angular/cdk/drag-drop';
@@ -14,8 +14,8 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from '../environments/environment';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import Swal from 'sweetalert2';
-
 
 
 
@@ -68,6 +68,8 @@ import { FooterComponent } from './componentes/footer/footer.component';
     AngularFireStorageModule,
     AngularFireDatabaseModule,
     RouterModule,
+    ReactiveFormsModule,
+    MatCheckboxModule
     
     
 
