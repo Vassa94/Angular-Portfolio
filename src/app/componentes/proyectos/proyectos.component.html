@@ -4,7 +4,7 @@
         <!-- Un botón que abrirá un modal para agregar un nuevo proyecto. -->
         <ul class="edicion botones " *ngIf="loG()">
             <li class="orden">
-              <button type="button" class="btn edicion btn-outline-secondary">
+              <button type="button" class="btn edicion btn-outline-secondary" (click)="agregarBloque">
                 <i class="fa fa-square-plus"></i>
               </button>
             </li>
@@ -12,7 +12,30 @@
         
         <!-- Un bucle que creará un nuevo bloque para cada proyecto en la matriz
         `misProyectos`. -->
-        <div class="container" *ngFor="let proyecto of misProyectos" >
+
+         
+                  
+           
+  <div class="container" >
+    <div class="row">
+      <div class="" style="display:inline-flex; item">
+        <div class="" *ngFor="let proyecto of misProyectos" >
+
+          <div class="card" >
+            <img [src]="proyecto.imgUrl" class="card-img-top" alt="img">
+            <div class="card-body">
+              <h5 class="card-title">{{ proyecto.nombre }}</h5>
+              <p class="card-text">{{ proyecto.descripcion }}</p>
+              <a [href]="proyecto.linkUrl" class="btn btn-primary">Ver</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+        <!--<div class="container" *ngFor="let proyecto of misProyectos" >
             <div class="row">
                 <div class="project shadow-large">
                     <div class="project-image">
@@ -38,7 +61,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
 </div>
 
 <app-skills></app-skills>

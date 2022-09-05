@@ -4,6 +4,7 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { AppComponent } from 'src/app/app.component';
 import { modalConfigDefaults } from 'angular-bootstrap-md/lib/free/modals/modal.options';
 import { Subscription } from 'rxjs';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-educacion',
@@ -17,6 +18,17 @@ export class EducacionComponent implements OnInit, OnDestroy {
     private datosPortfolio: PortfolioService,
     private appComponent: AppComponent
   ) {}
+
+  eduform = new FormGroup({
+    nombre: new FormControl(''),
+    fechaInicioM: new FormControl(),
+    fechaInicioA: new FormControl(),
+    actual: new FormControl(),
+    fechaFinM: new FormControl(),
+    fechaFinA: new FormControl(),
+    titulo: new FormControl (),
+    descripcion: new FormControl(''),
+  });
 
   ngOnInit(): void {
     this.getEducacion();
@@ -45,11 +57,21 @@ export class EducacionComponent implements OnInit, OnDestroy {
     return this.appComponent.loggedIn;
   }
 
-  deleteBlock(id) {
+  agregarBloque (){
+    
+    const body = {
+      titulo: this.eduform.value.titulo,
+      actual: this.eduform.value.actual,
+      fechaInicio: this.eduform.value.fechaInicioM + " " + this.eduform.value.fechaInicioA,
+      fechaFin: this.eduform.value.fechaFinM + " " + this.eduform.value.fechaFinA ,
+      descripcion: this.eduform.value.descripcion,
+    }
+    this.datosPortfolio.postExp(body).subscribe((data) => {});
+    console.log(body);
+  }
+  
+  borrarBloque(id) {
     this.datosPortfolio.deleteEduc(id).subscribe((data) => {});
   }
 
-
-    
-  crearBloque(educ) {}
 }

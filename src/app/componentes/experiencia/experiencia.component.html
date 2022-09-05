@@ -67,7 +67,7 @@
         <div class="mb-3">
           <label for="titulo">Titulo</label>
           <div>
-            <input name="descripcion" class="form-control" formControlName="titulo"/>
+            <input  name="descripcion" class="form-control" formControlName="titulo"/>
           </div>
         </div>
 
@@ -76,10 +76,12 @@
             <label for="fechaInicio">Fecha de Inicio</label>
             <div>
               <div class="input-group">
-                <select class="form-select"
+                <select 
+                        class="form-select"
                         name="fechaFin" 
                         class="form-control" 
                         formControlName="fechaInicioM">
+                  <option selected>Mes</option>
                   <option>Enero</option>
                   <option>Febrero</option>
                   <option>Marzo</option>
@@ -93,10 +95,12 @@
                   <option>Noviembre</option>
                   <option>Diciembre</option>
                 </select>
-                <select class="form-select" 
+                <select 
+                        class="form-select" 
                         name="fechaFin" 
                         class="form-control" 
                         formControlName="fechaInicioA">
+                  <option hidden selected>Año</option>
                   <option>2010</option>
                   <option>2011</option>
                   <option>2012</option>
@@ -133,10 +137,12 @@
           <label for="fechaFin">Fecha de Finalización</label>
           <div class="input-group" formControlName="fechaFin">
            
-            <select class="form-select" 
+            <select 
+                    class="form-select" 
                     name="fechaInicio" 
                     class="form-control" 
                     formControlName="fechaFinM">
+              <option selected>Mes</option>
               <option>Enero</option>
               <option>Febrero</option>
               <option>Marzo</option>
@@ -150,10 +156,12 @@
               <option>Noviembre</option>
               <option>Diciembre</option>
             </select>
-            <select class="form-select" 
+            <select 
+                    class="form-select" 
                     name="fechaInicio" 
                     class="form-control" 
                     formControlName="fechaFinA">
+              <option selected>Año</option>
               <option>2010</option>
               <option>2011</option>
               <option>2012</option>

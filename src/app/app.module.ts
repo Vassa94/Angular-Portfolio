@@ -16,6 +16,8 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from '../environments/environment';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import Swal from 'sweetalert2';
+import {CarouselModule} from 'primeng/carousel';
+import { CardModule } from 'primeng/card';
 
 
 
@@ -69,7 +71,9 @@ import { FooterComponent } from './componentes/footer/footer.component';
     AngularFireDatabaseModule,
     RouterModule,
     ReactiveFormsModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    CarouselModule,
+    CardModule
     
     
 
