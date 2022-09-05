@@ -1,12 +1,23 @@
 <div id="skills">
         <h2 class="heading">Habilidades</h2>
+
+        <ul class="edicion botones " *ngIf="loG()">
+            <li class="orden" style="background: none ;" >
+              <button type="button" class="btn edicion btn-outline-secondary" (click)="agregarBloque">
+                <i class="fa fa-square-plus"></i>
+              </button>
+            </li>
+        </ul>
+
             <ul>        
                 <ng-container *ngFor="let skil of skills">
-                    <li >
-                        {{skil}}
+                    <li class="skill" >
                         <button type="button" class="btn btn-sm btn-link"*ngIf="loG()">
                             <i class="fa fa-pencil-square"></i>
                         </button>
+                        {{skil.nombre}}
+                        <p><ngb-progressbar type="success" [showValue]="true" [value]="skil.nivel" [striped]="true"></ngb-progressbar></p>
+                        
                     </li>
 
                 </ng-container>

@@ -63,5 +63,6 @@
     -o-animation: ScrollUpButton__fadein--3nYOh 2s;
     -webkit-box-sizing: content-box;
     box-sizing: content-box;
+    z-index: index 20;
 }
 

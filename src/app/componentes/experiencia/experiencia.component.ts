@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { AppComponent } from 'src/app/app.component';
-import {  ModalDismissReasons,NgbModal,NgbActiveModal,NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
+import {  ModalDismissReasons,NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, FormGroup } from '@angular/forms';
 
 
@@ -116,6 +116,8 @@ export class ExperienciaComponent implements OnInit {
   borrarBloque(id) {
     this.datosPortfolio.deleteExp(id).subscribe((data) => {});
   }
+
+  
 
 }
 
