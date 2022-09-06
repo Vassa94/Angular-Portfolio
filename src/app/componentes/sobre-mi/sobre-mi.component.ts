@@ -5,6 +5,8 @@ import { AppComponent } from 'src/app/app.component';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { HttpParams } from '@angular/common/http';
 import { Subscription } from 'rxjs';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-sobre-mi',
@@ -94,5 +96,12 @@ export class SobreMiComponent implements OnInit,OnDestroy {
       .set('about', this.personaform.value.descripcion);
 
     this.datosPortfolio.putHeader(params).subscribe((data) => {});
+    Swal.fire({
+      title: '¡Genial!',
+      text: 'Informacion editada',
+      icon: 'success',
+      showConfirmButton: false,
+      timer: 1500
+    });
   }
 }

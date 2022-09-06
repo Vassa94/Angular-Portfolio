@@ -4,6 +4,8 @@ import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from 'src/app/app.component';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { HttpParams } from '@angular/common/http';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-header',
@@ -116,5 +118,12 @@ export class HeaderComponent implements OnInit {
     
     
     this.datosPortfolio.putHeader(params).subscribe((data) => {});
+    Swal.fire({
+      title: '¡Genial!',
+      text: 'Informacion editada',
+      icon: 'success',
+      showConfirmButton: false,
+      timer: 1500
+    });
   }
 }

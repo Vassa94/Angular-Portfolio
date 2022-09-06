@@ -1,67 +1,70 @@
 <div id="projects" class="background-alt">
-        <h2 class="heading">Proyectos</h2>
-        
-        <!-- Un botón que abrirá un modal para agregar un nuevo proyecto. -->
-        <ul class="edicion botones " *ngIf="loG()">
-            <li class="orden">
-              <button type="button" class="btn edicion btn-outline-secondary" (click)="agregarBloque">
-                <i class="fa fa-square-plus"></i>
-              </button>
-            </li>
-        </ul>
-        
-        <!-- Un bucle que creará un nuevo bloque para cada proyecto en la matriz
+  <h2 class="heading">Proyectos</h2>
+
+  <!-- Un botón que abrirá un modal para agregar un nuevo proyecto. -->
+  <ul class="edicion botones " *ngIf="loG()">
+    <li class="orden">
+      <button type="button" class="btn edicion btn-outline-secondary" (click)="agregarBloque">
+        <i class="fa fa-square-plus"></i>
+      </button>
+    </li>
+  </ul>
+
+  <!-- Un bucle que creará un nuevo bloque para cada proyecto en la matriz
         `misProyectos`. -->
 
-         
-                  
-           
-  <div class="container" >
-    <div class="row">
-      <div class="" style="display:inline-flex; item">
-        <div class="" *ngFor="let proyecto of misProyectos" >
 
-          <div class="card" >
-            <img [src]="proyecto.imgUrl" class="card-img-top" alt="img">
-            <div class="card-body">
-              <h5 class="card-title">{{ proyecto.nombre }}</h5>
-              <p class="card-text">{{ proyecto.descripcion }}</p>
-              <a [href]="proyecto.linkUrl" class="btn btn-primary">Ver</a>
+
+
+  <div class="container" style="align-items: center ;">
+    <div style="display:inline-flex;">
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+  
+          <div class="carousel-item" data-interval="10000" *ngFor="let proyecto of misProyectos let i =index" [ngClass]="{'active': i == 0 }">
+          
+            <div class="card">
+              <img [src]="proyecto.imgUrl" class="card-img-top" alt="img">
+              <div class="card-body">
+                <h4 class="card-title">{{ proyecto.nombre }}</h4>
+                <p class="card-text">{{ proyecto.descripcion }}</p>
+              </div>
+              <a [href]="proyecto.linkUrl" target="_blank" class="proyecto btn btn-primary">Ver</a>
             </div>
           </div>
-
+          </div>
+  
+          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
-      </div>
+
+      
     </div>
   </div>
 
-        <!--<div class="container" *ngFor="let proyecto of misProyectos" >
-            <div class="row">
-                <div class="project shadow-large">
-                    <div class="project-image">
-                        <img [src]="proyecto.imgUrl" width="300" height="300"  />
-                    </div>
-                    <ul class="botones"*ngIf="loG()">
-                        <li class="orden">
-                          <button type="button" class="btn btn-sm btn-link">
-                            <i class="fa fa-pencil-square"></i>
-                          </button>
-                        </li>
-                        <li class="orden">
-                          <button class="btn btn-link btn-sm">
-                            <i class="fa fa-square-xmark"></i>
-                          </button>
-                        </li>
-                    </ul>
-                    
-                    <div class="project-info">
-                        <h3>{{proyecto.nombre}}</h3>
-                        <p>{{proyecto.descripcion}}</p>
-                        <a [href]= "proyecto.linkUrl" target="_blank">Ver pagina</a>
-                    </div>
-                </div>
-            </div>
-        </div>-->
+    <!-- <div class="container" style="align-items: center ;">
+    <div style="display:inline-flex;">
+      <div class="" *ngFor="let proyecto of misProyectos">
+
+        <div class="card">
+          <img [src]="proyecto.imgUrl" class="card-img-top" alt="img">
+          <div class="card-body">
+            <h4 class="card-title">{{ proyecto.nombre }}</h4>
+            <p class="card-text">{{ proyecto.descripcion }}</p>
+          </div>
+          <a [href]="proyecto.linkUrl" target="_blank" class="proyecto btn btn-primary">Ver</a>
+        </div>
+
+      </div>
+    </div>
+  </div> -->
+
 </div>
 
 <app-skills></app-skills>
