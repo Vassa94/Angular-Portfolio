@@ -4,7 +4,7 @@
   <!-- Un botón de edición que se mostrará solo si el usuario ha iniciado sesión. -->
   <ul class="botones" *ngIf="loG()">
     <li class="orden">
-      <button type="button" class="btn edicion btn-outline-secondary" (click)="edit(content)">
+      <button type="button" class="btn edicion btn-outline-secondary" (click)="add(content)">
         <i class="fa fa-square-plus"></i>
       </button>
     </li>
@@ -18,7 +18,7 @@
     <div class="vtimeline-point">
       <ul class="botones" *ngIf="loG()">
         <li class="orden">
-          <button type="button" class="btn btn-sm btn-link">
+          <button type="button" class="btn btn-sm btn-link" (click)="edit(content2,exp)">
             <i class="fa fa-pencil-square"></i>
           </button>
         </li>
@@ -50,7 +50,7 @@
 </div>
 
 
-<!-- Una plantilla para el modal. -->
+<!-- Una plantilla para el modal. Add-->
 <ng-template #content let-modal>
   <div class="modal-header">
     <h2 class="modal-title">Sobre Mi</h2>
@@ -67,7 +67,7 @@
         <div class="mb-3">
           <label for="titulo">Titulo</label>
           <div>
-            <input  name="descripcion" class="form-control" formControlName="titulo"/>
+            <input  name="titulo" class="form-control" formControlName="titulo"/>
           </div>
         </div>
 
@@ -81,7 +81,7 @@
                         name="fechaFin" 
                         class="form-control" 
                         formControlName="fechaInicioM">
-                  <option selected>Mes</option>
+                  <option hidden selected>Mes</option>
                   <option>Enero</option>
                   <option>Febrero</option>
                   <option>Marzo</option>
@@ -124,12 +124,15 @@
         <div >
           <label for="actual">Es su trabajo actual</label>
           <div style="display: flex; align-items:center ;">
-              <mat-checkbox   name="actual" 
-                            style="align-items:center ;"
-                            color="secondary"
-                            formControlName="actual" 
-                            [(ngModel)]="checked"
-                            ></mat-checkbox>
+              <input  class="form-check-input"
+                      type="checkbox"
+                      name="actual" 
+                      style="align-items:center ;"
+                      color="secondary"
+                      formControlName="actual" 
+                      id="checkbox"
+                      ng-model="checked"
+                      >
           </div>
         </div>
 
@@ -137,12 +140,15 @@
           <label for="fechaFin">Fecha de Finalización</label>
           <div class="input-group" formControlName="fechaFin">
            
+            
+            
             <select 
                     class="form-select" 
                     name="fechaInicio" 
                     class="form-control" 
-                    formControlName="fechaFinM">
-              <option selected>Mes</option>
+                    formControlName="fechaFinM"
+                    ng-disabled="checked">
+              <option hidden selected>Mes</option>
               <option>Enero</option>
               <option>Febrero</option>
               <option>Marzo</option>
@@ -161,7 +167,7 @@
                     name="fechaInicio" 
                     class="form-control" 
                     formControlName="fechaFinA">
-              <option selected>Año</option>
+              <option hidden selected>Año</option>
               <option>2010</option>
               <option>2011</option>
               <option>2012</option>
@@ -177,6 +183,7 @@
               <option>2022</option>
               <option>2023</option>
             </select>
+          
           </div>
         </div>
       </div>
@@ -190,7 +197,171 @@
         <div class="mb-3">
           <label for="descripcion">Descripción</label>
           <div>
-            <textarea  name="descripcion" class="form-control" formControlName="descripcion"></textarea>
+            <textarea ng-disabled="checked" rows="3"  name="descripcion" class="form-control" formControlName="descripcion"></textarea>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="modal-footer input-group">
+        <button type="submit" class="btn btn-success btn-modal" (click)="modal.close('Save click')">
+          Guardar cambios
+        </button>
+      </div>
+    </form>
+
+  </div>
+</ng-template>
+
+<!--Modal edit-->
+<ng-template #content2 let-modal>
+  <div class="modal-header">
+    <h2 class="modal-title">Sobre Mi</h2>
+    <button type="button" class="close edicion" data-dismiss="modal" (click)="modal.dismiss('Cross click')">
+      <i class="fa fa-times"></i>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <form [formGroup]="expform" (ngSubmit)="actualizarBloque(exp)">
+      
+      <div class="form-group">
+
+        <div class="mb-3">
+          <label for="titulo">Titulo</label>
+          <div>
+            <input  name="descripcion" class="form-control" formControlName="titulo"/>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-evenly; align-items: center;">
+          <div>
+            <label for="fechaInicio">Fecha de Inicio</label>
+            <div>
+              <div class="input-group">
+                <select 
+                        class="form-select"
+                        name="fechaFin" 
+                        class="form-control" 
+                        formControlName="fechaInicioM">
+                  <option hidden selected>Mes</option>
+                  <option>Enero</option>
+                  <option>Febrero</option>
+                  <option>Marzo</option>
+                  <option>Abril</option>
+                  <option>Mayo</option>
+                  <option>Junio</option>
+                  <option>Julio</option>
+                  <option>Agosto</option>
+                  <option>Septiembre</option>
+                  <option>Octubre</option>
+                  <option>Noviembre</option>
+                  <option>Diciembre</option>
+                </select>
+                <select 
+                        class="form-select" 
+                        name="fechaFin" 
+                        class="form-control" 
+                        formControlName="fechaInicioA"
+                        >
+                  <option hidden selected>Año</option>
+                  <option>2010</option>
+                  <option>2011</option>
+                  <option>2012</option>
+                  <option>2013</option>
+                  <option>2014</option>
+                  <option>2015</option>
+                  <option>2016</option>
+                  <option>2017</option>
+                  <option>2018</option>
+                  <option>2019</option>
+                  <option>2020</option>
+                  <option>2021</option>
+                  <option>2022</option>
+                  <option>2023</option>
+                </select>
+              </div>
+            </div>
+          
+        </div>
+
+        <div >
+          <label for="actual">Es su trabajo actual</label>
+          <div style="display: flex; align-items:center ;">
+              <input  class="form-check-input"
+                      type="checkbox"
+                      name="actual" 
+                      style="align-items:center ;"
+                      color="secondary"
+                      formControlName="actual" 
+                      id="flexCheckDefault"
+                      
+                      >
+          </div>
+        </div>
+
+        <div  >
+          <label for="fechaFin">Fecha de Finalización</label>
+          <div class="input-group" formControlName="fechaFin" >
+           
+            
+            
+            <select 
+                    class="form-select" 
+                    name="fechaInicio" 
+                    class="form-control" 
+                    formControlName="fechaFinM"
+                    >
+              <option hidden selected>Mes</option>
+              <option>Enero</option>
+              <option>Febrero</option>
+              <option>Marzo</option>
+              <option>Abril</option>
+              <option>Mayo</option>
+              <option>Junio</option>
+              <option>Julio</option>
+              <option>Agosto</option>
+              <option>Septiembre</option>
+              <option>Octubre</option>
+              <option>Noviembre</option>
+              <option>Diciembre</option>
+            </select>
+            <select 
+                    class="form-select" 
+                    name="fechaInicio" 
+                    class="form-control" 
+                    formControlName="fechaFinA">
+              <option hidden selected>Año</option>
+              <option>2010</option>
+              <option>2011</option>
+              <option>2012</option>
+              <option>2013</option>
+              <option>2014</option>
+              <option>2015</option>
+              <option>2016</option>
+              <option>2017</option>
+              <option>2018</option>
+              <option>2019</option>
+              <option>2020</option>
+              <option>2021</option>
+              <option>2022</option>
+              <option>2023</option>
+            </select>
+          
+          </div>
+        </div>
+      </div>
+        <div class="mb-3">
+          <label for="posicion">Cargo</label>
+          <div>
+            <input  name="posicion" class="form-control" formControlName="posicion"/>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="descripcion">Descripción</label>
+          <div>
+            <textarea rows="3"  name="descripcion" class="form-control" formControlName="descripcion"></textarea>
           </div>
         </div>
 
@@ -208,3 +379,5 @@
 
 
 <app-educacion></app-educacion>
+
+

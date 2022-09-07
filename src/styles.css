@@ -30,8 +30,7 @@ body.active {
 .orden {
   
   float: left;
-  margin-right: 1px;
-  padding: 0 4px;
+  
 }
 .no-js #experience-timeline>div {
     background:#fff;
