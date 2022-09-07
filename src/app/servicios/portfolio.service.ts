@@ -50,6 +50,15 @@ export class PortfolioService {
     );
   }
 
+  putExp(id,body): Observable<object> {
+    return this.http.put<any>('http://localhost:8080/experiencia/editar/'+id, body).pipe(
+      tap(() => {
+        this._refresh$.next();
+        console.log('obserbable iniciado');
+      })
+    );
+  }
+
   deleteExp(id): Observable<object> {
     return this.http
       .delete('http://localhost:8080/experiencia/borrar/' + id).pipe(
