@@ -25,20 +25,9 @@ export class ExperienciaComponent implements OnInit {
   constructor(
     private datosPortfolio: PortfolioService,
     private modalService: NgbModal,
-    private appComponent: AppComponent
+    private appComponent: AppComponent,
+
   ) {}
-
-  
-  
-  ngOnInit(): void {
-    this.getExp();
-  }
-
-  getExp() {
-    this.datosPortfolio.getExp().subscribe((data) => {
-      this.miExperiencia = data;
-    });
-  }
 
   expform = new FormGroup({
     titulo: new FormControl(''),
@@ -50,6 +39,22 @@ export class ExperienciaComponent implements OnInit {
     posicion: new FormControl(),
     descripcion: new FormControl(''),
   });
+  
+  ngOnInit(): void {
+    this.getExp();
+  
+    this.datosPortfolio.refresh$.subscribe(result =>{
+      this.getExp();
+    })
+  }
+
+  getExp() {
+    this.datosPortfolio.getExp().subscribe((data) => {
+      this.miExperiencia = data;
+    });
+  }
+
+  
 
   /**
    * Si el usuario ha iniciado sesión, permite mover el elemento en la matriz
@@ -71,19 +76,6 @@ export class ExperienciaComponent implements OnInit {
    */
   public loG() {
     return this.appComponent.loggedIn;
-  }
-
-  open(content) {
-    this.modalService
-      .open(content, { ariaLabelledBy: 'modal-basic-title' })
-      .result.then(
-        (result) => {
-          this.closeResult = `Closed with: ${result}`;
-        },
-        (reason) => {
-          this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-        }
-      );
   }
 
   openVerticallyCentered(content) {
@@ -130,11 +122,6 @@ export class ExperienciaComponent implements OnInit {
     this.openVerticallyCentered(content2);
   } 
 
-  
-  
-   
-
-
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';
@@ -158,6 +145,7 @@ export class ExperienciaComponent implements OnInit {
     if (this.expform.value.actual == true) {
       body.fechaFin = 'Actualmente';
     }
+    //this.miExperiencia.push(body)
     this.datosPortfolio.postExp(body).subscribe((data) => {});
     Swal.fire({
       title: '¡Genial!',
@@ -166,18 +154,24 @@ export class ExperienciaComponent implements OnInit {
       showConfirmButton: false,
       timer: 1500
     });
+    this.getExp();
   }
 
   borrarBloque(id) {
     this.datosPortfolio.deleteExp(id).subscribe((data) => {});
+    Swal.fire({
+      title: '¡Genial!',
+      text: 'Información borrada',
+      icon: 'success',
+      showConfirmButton: false,
+      timer: 1500
+    });
+    this.getExp();
   }
 
   actualizarBloque(){
-    console.log(this.expId);
     let ini= this.expform.value.fechaInicioM + ' ' + this.expform.value.fechaInicioA;
     let fin= this.expform.value.fechaFinM + ' ' + this.expform.value.fechaFinA;
-    console.log(ini);
-    console.log(fin);
     const params = new HttpParams()
       .set('titulo', this.expform.value.titulo)
       .set('fechaInicio', ini)
@@ -187,17 +181,15 @@ export class ExperienciaComponent implements OnInit {
       .set('descripcion', this.expform.value.descripcion)
       .set('perId',1)
     
-      console.log(params);
-    
-    
     this.datosPortfolio.putExp(this.expId,params).subscribe((data) => {});
     Swal.fire({
       title: '¡Genial!',
-      text: 'Informacion editada',
+      text: 'Información editada',
       icon: 'success',
       showConfirmButton: false,
       timer: 1500
     });
+    
   }
 
 }
