@@ -37,6 +37,24 @@ export class PortfolioService {
       );
   }
 
+  postEduc(body):Observable<any>{
+    return this.http.post("http://localhost:8080/educacion/crear",body).pipe(
+      tap(() => {
+        this._refresh$.next();
+        console.log('obserbable iniciado');
+      })
+    );
+  }
+
+  putEduc(id,body): Observable<object> {
+    return this.http.put<any>('http://localhost:8080/educacion/editar/'+id, body).pipe(
+      tap(() => {
+        this._refresh$.next();
+        console.log('obserbable iniciado');
+      })
+    );
+  }
+
   getExp(): Observable<any> {
     return this.http.get('http://localhost:8080/experiencia/traer');
   }

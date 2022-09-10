@@ -4,7 +4,7 @@
     <!-- Un botón para agregar un nuevo bloque educativo. -->
     <ul class="edicion botones " *ngIf="loG()">
         <li class="orden">
-          <button type="button" class="btn edicion btn-outline-secondary">
+          <button type="button" class="btn edicion btn-outline-secondary" (click)="add(content)">
             <i class="fa fa-square-plus"></i>
           </button>
         </li>
@@ -14,12 +14,12 @@
     <div class="education-block" *ngFor= "let edu of miEducacion" cdkDrag >
         <ul class="botones" *ngIf="loG()">
             <li class="orden">
-              <button type="button" class="btn btn-sm btn-link">
+              <button type="button" class="btn btn-sm btn-link" (click)="edit(content,edu)">
                 <i class="fa fa-pencil-square"></i>
               </button>
             </li>
             <li class="orden">
-              <button class="btn btn-link btn-sm" color=#6c757d (click)="deleteBlock(edu.id)">
+              <button class="btn btn-link btn-sm" color=#6c757d (click)="borrarBloque(edu.id)">
                 <i class="fa fa-square-xmark"></i>
               </button>
             </li>
@@ -37,6 +37,7 @@
     </div>
 </div>
 
+<!-- Creando un modal que se usará para agregar un nuevo bloque de experiencia. -->
 <ng-template #content let-modal>
   <div class="modal-header">
     <h2 class="modal-title">Educacion</h2>
@@ -45,23 +46,134 @@
     </button>
   </div>
   <div class="modal-body">
-    <form>
+
+    <form [formGroup]="eduform" (ngSubmit)="agregarBloque()">
+
       <div class="form-group">
-        <label for="firstname">Descripcion</label>
-        <div>
-          <input placeholder="{{ miInfo.about }}" id="firstname" class="form-control" />
+
+        <div class="mb-3">
+          <label for="titulo">Nombre del centro o institución</label>
+          <div>
+            <input name="nombre" class="form-control" formControlName="nombre" />
+          </div>
         </div>
-        <label for="firstname">Imagen de perfil</label>
-        <div>
-          <input placeholder="{{miInfo.imgUrl}}" id="firstname" class="form-control" />
+
+        <div class="mb-3">
+          <label for="titulo">Titulo obtenido</label>
+          <div>
+            <input name="titulo" class="form-control" formControlName="titulo" />
+          </div>
         </div>
+
+        <div style="display: flex; justify-content: space-evenly; align-items: center;">
+          <div>
+            <label for="fechaInicio">Fecha de Inicio</label>
+            <div>
+              <div class="input-group">
+                <select class="form-select" name="fechaFin" class="form-control" formControlName="fechaInicioM">
+                  <option hidden selected>Mes</option>
+                  <option>Enero</option>
+                  <option>Febrero</option>
+                  <option>Marzo</option>
+                  <option>Abril</option>
+                  <option>Mayo</option>
+                  <option>Junio</option>
+                  <option>Julio</option>
+                  <option>Agosto</option>
+                  <option>Septiembre</option>
+                  <option>Octubre</option>
+                  <option>Noviembre</option>
+                  <option>Diciembre</option>
+                </select>
+                <select class="form-select" name="fechaFin" class="form-control" formControlName="fechaInicioA">
+                  <option hidden selected>Año</option>
+                  <option>2010</option>
+                  <option>2011</option>
+                  <option>2012</option>
+                  <option>2013</option>
+                  <option>2014</option>
+                  <option>2015</option>
+                  <option>2016</option>
+                  <option>2017</option>
+                  <option>2018</option>
+                  <option>2019</option>
+                  <option>2020</option>
+                  <option>2021</option>
+                  <option>2022</option>
+                  <option>2023</option>
+                </select>
+              </div>
+            </div>
+
+          </div>
+
+          <div>
+            <label for="actual">Esta cursando?</label>
+            <div style="display: flex; align-items:center ;">
+              <input class="form-check-input" type="checkbox" name="actual" style="align-items:center ;"
+                color="secondary" formControlName="actual" id="checkbox" ng-model="checked">
+            </div>
+          </div>
+
+          <div>
+            <label for="fechaFin">Fecha de Finalización</label>
+            <div class="input-group" formControlName="fechaFin">
+
+              <select class="form-select" name="fechaInicio" class="form-control" formControlName="fechaFinM"
+                ng-disabled="checked">
+                <option hidden selected>Mes</option>
+                <option>Enero</option>
+                <option>Febrero</option>
+                <option>Marzo</option>
+                <option>Abril</option>
+                <option>Mayo</option>
+                <option>Junio</option>
+                <option>Julio</option>
+                <option>Agosto</option>
+                <option>Septiembre</option>
+                <option>Octubre</option>
+                <option>Noviembre</option>
+                <option>Diciembre</option>
+              </select>
+              <select class="form-select" name="fechaInicio" class="form-control" formControlName="fechaFinA">
+                <option hidden selected>Año</option>
+                <option>2010</option>
+                <option>2011</option>
+                <option>2012</option>
+                <option>2013</option>
+                <option>2014</option>
+                <option>2015</option>
+                <option>2016</option>
+                <option>2017</option>
+                <option>2018</option>
+                <option>2019</option>
+                <option>2020</option>
+                <option>2021</option>
+                <option>2022</option>
+                <option>2023</option>
+              </select>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="descripcion">Descripción</label>
+          <div>
+            <textarea ng-disabled="checked" rows="3" name="descripcion" class="form-control"
+              formControlName="descripcion"></textarea>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="modal-footer input-group">
+        <button type="submit" class="btn btn-success btn-modal" (click)="modal.close('Save click')">
+          Guardar cambios
+        </button>
       </div>
     </form>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-success btn-modal" (click)="modal.close('Save click')">
-      Guardar cambios
-    </button>
+
   </div>
 </ng-template>
 
