@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 import { AppComponent } from 'src/app/app.component';
 import { Subscription } from 'rxjs';
@@ -13,46 +13,41 @@ import Swal from 'sweetalert2';
   templateUrl: './proyectos.component.html',
   styleUrls: ['./proyectos.component.css'],
 })
-export class ProyectosComponent implements OnInit {
-  images; 
+export class ProyectosComponent implements OnInit, OnDestroy {
   responsiveOptions;
   misProyectos: any;
   closeResult: any;
   proyId:number;
+  suscription: Subscription;
+
 
   constructor(
     private datosPortfolio: PortfolioService,
     private modalService: NgbModal,
     private appComponent: AppComponent
-  ){
-    this.responsiveOptions = [{
-      breakpoint: '1024px',
-      numVisible: 3,
-      numScroll: 3
-  },
-  {
-      breakpoint: '768px',
-      numVisible: 2,
-      numScroll: 2
-  },
-  {
-      breakpoint: '560px',
-      numVisible: 1,
-      numScroll: 1
-  }];
-  }
+  ){ }
 
   proyform = new FormGroup({
     nombre: new FormControl(''),
     imgUrl: new FormControl(),
     descripcion: new FormControl(),
-    linkUrl: new FormControl()    
+    linkUrl: new FormControl(),
+    edit: new FormControl()   
   });
 
 
   ngOnInit(): void {
     this.getProyect();
+
+    this.datosPortfolio.refresh$.subscribe(result =>{
+      this.getProyect();
+    })
     
+  }
+
+  ngOnDestroy(): void {
+    this.suscription.unsubscribe();
+    console.log('obserbable cerrado');
   }
 
   getProyect ():void{
@@ -74,7 +69,8 @@ export class ProyectosComponent implements OnInit {
       nombre:'',
       imgUrl:'',
       descripcion: '',
-      linkUrl: ''
+      linkUrl: '',
+      edit: 0
     });
     this.openVerticallyCentered(content);
   }
@@ -85,10 +81,19 @@ export class ProyectosComponent implements OnInit {
       nombre: proyect.nombre,
       imgUrl: proyect.imgUrl,
       descripcion: proyect.descripcion,
-      linkUrl: proyect.linkUrl
+      linkUrl: proyect.linkUrl,
+      edit:1
     });
     this.proyId=proyect.id;
     this.openVerticallyCentered(content2);
+  }
+
+  form() {
+    if (this.proyform.value.edit == 0) {
+      this.agregarBloque();
+    } else {
+      this.actualizarBloque();
+    }
   }
 
   agregarBloque (){
@@ -108,20 +113,30 @@ export class ProyectosComponent implements OnInit {
       showConfirmButton: false,
       timer: 1500
     });
-    this.getProyect();
+    //this.getProyect();
     this.misProyectos.next();
   }
   
   borrarBloque(id) {
-    this.datosPortfolio.deleteProyect(id).subscribe((data) => {});
     Swal.fire({
-      title: '¡Genial!',
-      text: 'Información borrada',
-      icon: 'success',
-      showConfirmButton: false,
-      timer: 1500
-    });
+      title: '¿Seguro quiere borrar este proyecto?',
+      showCancelButton: true,
+      confirmButtonText: 'Si',
+      denyButtonText: `Cancelar`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.datosPortfolio.deleteProyect(id).subscribe((data) => {});
+        Swal.fire({
+          title: '¡Genial!',
+          text: 'Información borrada',
+          icon: 'success',
+          showConfirmButton: false,
+          timer: 1500
+        });
+      } 
+    })
     this.getProyect();
+    this.misProyectos.next();
 
   }
 
@@ -132,8 +147,7 @@ export class ProyectosComponent implements OnInit {
       .set('descripcion', this.proyform.value.descripcion)
       .set('linkUrl', this.proyform.value.linkUrl)
       .set('perId',1)
-    
-    //this.datosPortfolio.putProyect(this.proyId,params).subscribe((data) => {});
+    this.datosPortfolio.putProyect(this.proyId,params).subscribe((data) => {});
     Swal.fire({
       title: '¡Genial!',
       text: 'Información editada',
