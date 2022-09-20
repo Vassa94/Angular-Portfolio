@@ -95,6 +95,34 @@ export class PortfolioService {
     return this.http.get('http://localhost:8080/proyectos/traer');
   }
 
+  postProyect(body):Observable<any>{
+    return this.http.post("http://localhost:8080/proyectos/crear",body).pipe(
+      tap(() => {
+        this._refresh$.next();
+        console.log('obserbable iniciado');
+      })
+    );
+  }
+
+  putProyect(id,body): Observable<object> {
+    return this.http.put<any>('http://localhost:8080/proyectos/editar/'+id, body).pipe(
+      tap(() => {
+        this._refresh$.next();
+        console.log('obserbable iniciado');
+      })
+    );
+  }
+
+  deleteProyect(id): Observable<object> {
+    return this.http
+      .delete('http://localhost:8080/proyectos/borrar/' + id).pipe(
+        tap(() => {
+          this._refresh$.next();
+          console.log('obserbable iniciado');
+        })
+      );
+  }
+
   putHeader(body): Observable<object> {
     return this.http.put<any>('http://localhost:8080/personas/editar/1', body).pipe(
       tap(() => {
