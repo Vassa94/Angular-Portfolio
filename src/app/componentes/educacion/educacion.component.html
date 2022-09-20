@@ -2,13 +2,11 @@
     <h2 class="heading">Educación</h2>
     
     <!-- Un botón para agregar un nuevo bloque educativo. -->
-    <ul class="edicion botones " *ngIf="loG()">
-        <li class="orden">
-          <button type="button" class="btn edicion btn-outline-secondary" (click)="add(content)">
-            <i class="fa fa-square-plus"></i>
-          </button>
-        </li>
-    </ul>
+    <div class="edicion botones " *ngIf="loG()">
+      <button type="button" class="btn edicion btn-outline-secondary" (click)="add(content)">
+        <i class="fa fa-square-plus"></i>
+      </button>
+    </div>
     
     <!-- Un bucle que itera sobre el arreglo `miEducacion` y crea un bloque para cada elemento del arreglo. -->
     <div class="education-block" *ngFor= "let edu of miEducacion" cdkDrag >
@@ -37,7 +35,7 @@
     </div>
 </div>
 
-<!-- Creando un modal que se usará para agregar un nuevo bloque de experiencia. -->
+<!-- Creando un modal que se usará para agregar un nuevo bloque de educacion. -->
 <ng-template #content let-modal>
   <div class="modal-header">
     <h2 class="modal-title">Educacion</h2>

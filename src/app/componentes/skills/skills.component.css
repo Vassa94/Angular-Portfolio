@@ -1,8 +1,15 @@
 .skill {
     border-radius: 20px;
+    width: 150px;
+    align-items: center;;
 }
 
 .edicion {    
     border-radius: 2rem;
     border-width: 2px;
+}
+
+.skill:hover{
+    background-color: #cf2222;
+    border-color: #161111;
 }

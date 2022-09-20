@@ -121,6 +121,7 @@ export class EducacionComponent implements OnInit, OnDestroy {
       body.fechaFin = 'Actualmente';
     }
     this.datosPortfolio.postEduc(body).subscribe((data) => {});
+    
     Swal.fire({
       title: '¡Genial!',
       text: 'Información agregada',
@@ -129,11 +130,11 @@ export class EducacionComponent implements OnInit, OnDestroy {
       timer: 1500
     });
     this.getEducacion();
+    this.miEducacion.next();
   }
   
   borrarBloque(id) {
     this.datosPortfolio.deleteEduc(id).subscribe((data) => {});
-    this.getEducacion();
     Swal.fire({
       title: '¡Genial!',
       text: 'Información borrada',
@@ -142,6 +143,7 @@ export class EducacionComponent implements OnInit, OnDestroy {
       timer: 1500
     });
     this.getEducacion();
+
   }
 
   actualizarBloque(){

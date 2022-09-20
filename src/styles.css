@@ -15,7 +15,7 @@ body.active {
 .edicion {
     
     border-radius: 2rem;
-    border-width: 2px;
+    
 }
 
 .botones {
@@ -28,9 +28,7 @@ body.active {
 }
 
 .orden {
-  
   float: left;
-  
 }
 .no-js #experience-timeline>div {
     background:#fff;
