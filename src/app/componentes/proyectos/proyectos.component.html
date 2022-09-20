@@ -19,7 +19,7 @@
   
   
           <div class="contain">
-            <div style="flex-direction:row ; display: flex;">
+            <div class="disposicion">
               <div class="card" *ngFor="let proyecto of misProyectos">
                 <img [src]="proyecto.imgUrl" class="card-img-top" alt="img">
                 <div class="card-body">
@@ -29,12 +29,12 @@
                 <div style="flex-direction:row; ">
                   <ul class="edit" *ngIf="loG()">
                     <li>
-                      <button type="button" class="btn btn-link" (click)="edit(content,edu)">
+                      <button type="button" class="btn btn-link" (click)="edit(content,proyecto)">
                         <i class="fa-solid fa-pen-to-square"></i>
                       </button>
                     </li>
                     <li>
-                      <button class="btn btn-link" color=#6c757d (click)="borrarBloque(edu.id)">
+                      <button class="btn btn-link" color=#6c757d (click)="borrarBloque(proyecto.id)">
                         <i class="fa-solid fa-xmark"></i>
                       </button>
                     </li>
@@ -76,7 +76,7 @@
   </div>
   <div class="modal-body">
 
-    <form [formGroup]="proyform" (ngSubmit)="agregarBloque()">
+    <form [formGroup]="proyform" (ngSubmit)="form()">
 
       <div class="form-group">
 
