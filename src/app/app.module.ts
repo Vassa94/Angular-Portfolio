@@ -32,6 +32,8 @@ import { NavComponent } from './componentes/nav/nav.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from './componentes/footer/footer.component';
+import { DndDirective } from './directiva/dnd.directive';
+import { ProgresoComponent } from './componentes/proyectos/progreso/progreso.component';
 
 
 
@@ -53,6 +55,8 @@ import { FooterComponent } from './componentes/footer/footer.component';
     NavComponent,
     LoginComponent,
     FooterComponent,
+    DndDirective,
+    ProgresoComponent,
    
   ],
   imports: [
