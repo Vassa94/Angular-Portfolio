@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable,Subject, tap } from 'rxjs';
+import { Observable, Subject, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -29,7 +29,8 @@ export class PortfolioService {
 
   deleteEduc(id): Observable<object> {
     return this.http
-      .delete('http://localhost:8080/educacion/borrar/' + id).pipe(
+      .delete('http://localhost:8080/educacion/borrar/' + id)
+      .pipe(
         tap(() => {
           this._refresh$.next();
           console.log('obserbable iniciado');
@@ -37,8 +38,8 @@ export class PortfolioService {
       );
   }
 
-  postEduc(body):Observable<any>{
-    return this.http.post("http://localhost:8080/educacion/crear",body).pipe(
+  postEduc(body): Observable<any> {
+    return this.http.post('http://localhost:8080/educacion/crear', body).pipe(
       tap(() => {
         this._refresh$.next();
         console.log('obserbable iniciado');
@@ -46,21 +47,23 @@ export class PortfolioService {
     );
   }
 
-  putEduc(id,body): Observable<object> {
-    return this.http.put<any>('http://localhost:8080/educacion/editar/'+id, body).pipe(
-      tap(() => {
-        this._refresh$.next();
-        console.log('obserbable iniciado');
-      })
-    );
+  putEduc(id, body): Observable<object> {
+    return this.http
+      .put<any>('http://localhost:8080/educacion/editar/' + id, body)
+      .pipe(
+        tap(() => {
+          this._refresh$.next();
+          console.log('obserbable iniciado');
+        })
+      );
   }
 
   getExp(): Observable<any> {
     return this.http.get('http://localhost:8080/experiencia/traer');
   }
 
-  postExp(body):Observable<any>{
-    return this.http.post("http://localhost:8080/experiencia/crear",body).pipe(
+  postExp(body): Observable<any> {
+    return this.http.post('http://localhost:8080/experiencia/crear', body).pipe(
       tap(() => {
         this._refresh$.next();
         console.log('obserbable iniciado');
@@ -68,18 +71,21 @@ export class PortfolioService {
     );
   }
 
-  putExp(id,body): Observable<object> {
-    return this.http.put<any>('http://localhost:8080/experiencia/editar/'+id, body).pipe(
-      tap(() => {
-        this._refresh$.next();
-        console.log('obserbable iniciado');
-      })
-    );
+  putExp(id, body): Observable<object> {
+    return this.http
+      .put<any>('http://localhost:8080/experiencia/editar/' + id, body)
+      .pipe(
+        tap(() => {
+          this._refresh$.next();
+          console.log('obserbable iniciado');
+        })
+      );
   }
 
   deleteExp(id): Observable<object> {
     return this.http
-      .delete('http://localhost:8080/experiencia/borrar/' + id).pipe(
+      .delete('http://localhost:8080/experiencia/borrar/' + id)
+      .pipe(
         tap(() => {
           this._refresh$.next();
           console.log('obserbable iniciado');
@@ -92,11 +98,13 @@ export class PortfolioService {
   }
 
   getProyec(): Observable<any> {
-    return this.http.get('http://localhost:8080/proyectos/traer');
+    return this.http.get('http://localhost:8080/proyectos/traer')
+    
   }
 
-  postProyect(body):Observable<any>{
-    return this.http.post("http://localhost:8080/proyectos/crear",body).pipe(
+  postProyect(body): Observable<any> {
+    return this.http.post('http://localhost:8080/proyectos/crear', body)
+    .pipe(
       tap(() => {
         this._refresh$.next();
         console.log('obserbable iniciado');
@@ -104,18 +112,21 @@ export class PortfolioService {
     );
   }
 
-  putProyect(id,body): Observable<object> {
-    return this.http.put<any>('http://localhost:8080/proyectos/editar/'+id, body).pipe(
-      tap(() => {
-        this._refresh$.next();
-        console.log('obserbable iniciado');
-      })
-    );
+  putProyect(id, body): Observable<object> {
+    return this.http
+      .put<any>('http://localhost:8080/proyectos/editar/' + id, body)
+      .pipe(
+        tap(() => {
+          this._refresh$.next();
+          console.log('obserbable iniciado');
+        })
+      );
   }
 
   deleteProyect(id): Observable<object> {
     return this.http
-      .delete('http://localhost:8080/proyectos/borrar/' + id).pipe(
+      .delete('http://localhost:8080/proyectos/borrar/' + id)
+      .pipe(
         tap(() => {
           this._refresh$.next();
           console.log('obserbable iniciado');
@@ -124,11 +135,13 @@ export class PortfolioService {
   }
 
   putHeader(body): Observable<object> {
-    return this.http.put<any>('http://localhost:8080/personas/editar/1', body).pipe(
-      tap(() => {
-        this._refresh$.next();
-        console.log('obserbable iniciado');
-      })
-    );
+    return this.http
+      .put<any>('http://localhost:8080/personas/editar/1', body)
+      .pipe(
+        tap(() => {
+          this._refresh$.next();
+          console.log('obserbable iniciado');
+        })
+      );
   }
 }
