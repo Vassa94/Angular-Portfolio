@@ -1,27 +1,72 @@
+<div class="edicion botones " *ngIf="loG()">
+    <button type="button" class="btn edicion btn-outline-secondary" (click)="add(content)">
+        <i class="fa fa-square-plus"></i>
+    </button>
+</div>
+
 <div id="skills">
-        <h2 class="heading">Habilidades</h2>
+    <h2 class="heading">Habilidades</h2>
+    <ul>
+        <ng-container *ngFor="let skill of skills">
+            <li class="skill card">
+                <button type="button" 
+                        class="btn btn-sm btn-link" 
+                        (click)="edit(content,skill)"
+                        *ngIf="loG()">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                {{skill.nombre}}
+                <button type="button" 
+                        class="btn btn-sm btn-link" 
+                        style="float:right;" 
+                        (click)="borrarBloque(skill.id)"    
+                        *ngIf="loG()">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <p>
+                    <ngb-progressbar type="primary" [showValue]="true" [value]="skill.nivel" [striped]="true">
+                    </ngb-progressbar>
+                </p>
 
-        <!--<div class="edicion botones " *ngIf="loG()">
-            <div style="background: none;" >
-              <button type="button" class="btn edicion btn-outline-secondary" (click)="agregarBloque">
-                <i class="fa fa-square-plus"></i>
-              </button>
-            </div>
-        </div>-->
+            </li>
+        </ng-container>
+    </ul>
+</div>
 
-            <ul>        
-                <ng-container *ngFor="let skill of skills">
-                    <li class="skill card" >
-                        <button type="button" class="btn btn-sm btn-link"*ngIf="loG()">
-                            <i class="fa fa-pencil-square"></i>
-                        </button>
-                        {{skill.nombre}}
-                        <p><ngb-progressbar type="primary" [showValue]="true" [value]="skill.nivel" [striped]="true"></ngb-progressbar></p>
-                        
-                    </li>
 
-                </ng-container>
-            </ul>
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h2 class="modal-title">Habilidades</h2>
+        <button type="button" class="close edicion" data-dismiss="modal" (click)="modal.dismiss('Cross click')">
+            <i class="fa fa-times"></i>
+        </button>
     </div>
+    <div class="modal-body">
+
+        <form [formGroup]="skillform" (ngSubmit)="form()">
+
+            <div class="form-group">
+                <div class="mb-3">
+                    <label for="nombre">Habilidad</label>
+                    <div>
+                        <input name="nombre" class="form-control" formControlName="nombre">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="imagen" class="form-label">Nivel</label>
+                    <input type="range" name="nivel" class="form-range" min="0" max="100" step="20" id="nivel" formControlName="nivel">
+                    
+                </div>
+            </div>
+
+            <div class="modal-footer input-group">
+                <button type="submit" class="btn btn-success btn-modal" (click)="modal.close('Save click')">
+                    Guardar cambios
+                </button>
+            </div>
+        </form>
+
+    </div>
+</ng-template>
 
 <app-contacto></app-contacto>

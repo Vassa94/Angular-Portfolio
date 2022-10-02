@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule} from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -34,6 +34,7 @@ import { RouterModule } from '@angular/router';
 import { FooterComponent } from './componentes/footer/footer.component';
 import { DndDirective } from './directiva/dnd.directive';
 import { ProgresoComponent } from './componentes/proyectos/progreso/progreso.component';
+import { InterceptorService } from './servicios/interceptor.service';
 
 
 
@@ -82,7 +83,13 @@ import { ProgresoComponent } from './componentes/proyectos/progreso/progreso.com
     
 
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent],
   
 })

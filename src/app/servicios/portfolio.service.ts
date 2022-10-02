@@ -23,6 +23,17 @@ export class PortfolioService {
     return this.http.get('http://localhost:8080/personas/traer/1');
   }
 
+  putHeader(body): Observable<object> {
+    return this.http
+      .put<any>('http://localhost:8080/personas/editar/1', body)
+      .pipe(
+        tap(() => {
+          this._refresh$.next();
+          console.log('obserbable iniciado');
+        })
+      );
+  }
+
   getEduc(): Observable<any> {
     return this.http.get('http://localhost:8080/educacion/traer');
   }
@@ -93,9 +104,7 @@ export class PortfolioService {
       );
   }
 
-  getSkills(): Observable<any> {
-    return this.http.get('http://localhost:8080/habilidades/traer');
-  }
+ 
 
   getProyec(): Observable<any> {
     return this.http.get('http://localhost:8080/proyectos/traer')
@@ -134,9 +143,24 @@ export class PortfolioService {
       );
   }
 
-  putHeader(body): Observable<object> {
+
+  getSkills(): Observable<any> {
+    return this.http.get('http://localhost:8080/habilidades/traer');
+  }
+
+  postSkill(body): Observable<any> {
+    return this.http.post('http://localhost:8080/habilidades/crear', body)
+    .pipe(
+      tap(() => {
+        this._refresh$.next();
+        console.log('obserbable iniciado');
+      })
+    );
+  }
+
+  putSkill(id, body): Observable<object> {
     return this.http
-      .put<any>('http://localhost:8080/personas/editar/1', body)
+      .put<any>('http://localhost:8080/habilidades/editar/' + id, body)
       .pipe(
         tap(() => {
           this._refresh$.next();
@@ -144,4 +168,17 @@ export class PortfolioService {
         })
       );
   }
+
+  deleteSkill(id): Observable<object> {
+    return this.http
+      .delete('http://localhost:8080/habilidades/borrar/' + id)
+      .pipe(
+        tap(() => {
+          this._refresh$.next();
+          console.log('obserbable iniciado');
+        })
+      );
+  }
+
+  
 }
