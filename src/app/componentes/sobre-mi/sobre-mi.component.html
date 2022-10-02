@@ -1,34 +1,26 @@
 
 <!-- botones de edición que solo se muestran si el usuario ha iniciado sesión. -->
-<div *ngIf="loG()" style="display: block;padding-top: 20px;padding-bottom: 0px;height: 60px;">
-  <ul class="botones">
-    <li class="orden">
-      <button type="button" class="btn edicion btn-outline-secondary" (click)="edit(content)">
+<div class="botones">
+      <button  *ngIf="loG()" type="button" class="btn edicion btn-outline-secondary" (click)="edit(content)">
         <i class="fa fa-pencil-square"></i>
       </button>
-    </li>
-  </ul>
 </div>
 
 <!-- Sección Acerca de mi. -->
-<div id="about" style="text-align: center;">
-  <div class="sobre-mi">
-    <h2 class="heading">Sobre mi</h2>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-3">
+<div id="about" >
+    <h2 class="heading" style="position: relative;display: inline-block;">Sobre mi</h2>
+    <div class="container" >
+      <div class="row" >
+        <div class="col-md-3" >
           <img class="perfil"
             [src]="miInfo.imgUrl"
             alt="Avatar" />
         </div>
-        <div class="col-md-8" style="padding-top:40px ;">
+        <div class="col-md-9" style="padding-top:40px ; padding-left: 20px">
           <p >{{ miInfo.about }}</p>
         </div>
       </div>
     </div>
-  </div>
 </div>
 
 <!-- Una plantilla para el modal. -->

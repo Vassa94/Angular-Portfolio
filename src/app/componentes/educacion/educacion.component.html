@@ -1,24 +1,24 @@
+    <!-- Un botón para agregar un nuevo bloque educativo. -->
+
+<div class="edicion botones " *ngIf="loG()">
+  <button type="button" class="btn edicion btn-outline-secondary" (click)="add(content)">
+    <i class="fa fa-square-plus"></i>
+  </button>
+</div>
+
 <div id="education" cdkDropList (cdkDropListDropped)="drop($event)">
     <h2 class="heading">Educación</h2>
-    
-    <!-- Un botón para agregar un nuevo bloque educativo. -->
-    <div class="edicion botones " *ngIf="loG()">
-      <button type="button" class="btn edicion btn-outline-secondary" (click)="add(content)">
-        <i class="fa fa-square-plus"></i>
-      </button>
-    </div>
-    
     <!-- Un bucle que itera sobre el arreglo `miEducacion` y crea un bloque para cada elemento del arreglo. -->
     <div class="education-block" *ngFor= "let edu of miEducacion" cdkDrag >
-        <ul class="botones" *ngIf="loG()">
+        <ul class="edit" *ngIf="loG()">
             <li class="orden">
               <button type="button" class="btn btn-sm btn-link" (click)="edit(content,edu)">
-                <i class="fa fa-pencil-square"></i>
+                <i class="fa-solid fa-pen-to-square"></i>
               </button>
             </li>
             <li class="orden">
               <button class="btn btn-link btn-sm" color=#6c757d (click)="borrarBloque(edu.id)">
-                <i class="fa fa-square-xmark"></i>
+                <i class="fa-solid fa-xmark"></i>
               </button>
             </li>
         </ul>
@@ -27,10 +27,8 @@
         <h4>{{edu.titulo}}</h4>
         <p>{{edu.descripcion}}</p>
         <div class="example-handle" cdkDragHandle style="text-align: end;" >
-          <svg width="24px" fill="#3498db" viewBox="0 0 24 24" *ngIf="loG()">
-            <path d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"></path>
-            <path d="M0 0h24v24H0z" fill="none"></path>
-          </svg>
+          <i class="fa-solid fa-hand" style="color:#0a58ca ;" *ngIf="loG()"></i>
+          
         </div>
     </div>
 </div>

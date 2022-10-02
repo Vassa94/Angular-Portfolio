@@ -105,7 +105,8 @@ export class ProyectosComponent implements OnInit, OnDestroy {
       nombre:this.proyform.value.nombre,
       imgUrl:this.proyform.value.imgUrl,
       descripcion: this.proyform.value.descripcion,
-      linkUrl: this.proyform.value.linkUrl
+      linkUrl: this.proyform.value.linkUrl,
+      perId:1,
     }
     this.datosPortfolio.postProyect(body).subscribe((data) => {});
     

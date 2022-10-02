@@ -20,6 +20,16 @@ body.active {
 
 .botones {
     float: right;
+    position: absolute;
+    right: 20px;
+    margin-top: 20px;
+    list-style-type: none;
+    text-align: right;
+    z-index: 10;
+}
+
+.edit {
+    float: right;
     position: relative;
     list-style-type: none;
     text-align: right;
@@ -318,6 +328,7 @@ footer {
 }
 #about {
     padding:75px 15px;
+    text-align: center;
     border-bottom:1px solid #dcd9d9
 }
 #about h2 {
@@ -670,7 +681,7 @@ footer {
         text-align:center
     }
     #about p {
-        text-align:left
+        text-align:center
     }
 }
 @media only screen and (max-width:768px) {
