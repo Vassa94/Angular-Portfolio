@@ -26,7 +26,7 @@ body.active {
     margin-top: 20px;
     list-style-type: none;
     text-align: right;
-    z-index: 10;
+    z-index: 2;
 }
 
 .edit {
@@ -228,6 +228,7 @@ footer {
     font-size:2em;
     font-weight:300;
     margin:0 0 30px 0
+    
 }
 .heading:after {
     position:absolute;
@@ -239,6 +240,7 @@ footer {
     right:0;
     margin:0 auto;
     background:#3498db
+    
 }
 .background-alt {
     background:#f2f2f5
@@ -289,7 +291,7 @@ footer {
     bottom:0;
     left:0;
     background:rgba(33,125,187,0.8);
-    z-index:-1
+    z-index:1
 }
 #lead-down {
     position:absolute;
