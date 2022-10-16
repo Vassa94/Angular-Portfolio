@@ -21,9 +21,10 @@
 
 .perfil {
 	border-radius: 80%;
-	width: 75%;
+	width: 75%*1vw;
 	
 }
+
 
 .titulo {
 	display: flex;

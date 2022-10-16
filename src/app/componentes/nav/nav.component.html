@@ -1,67 +1,67 @@
 <nav>
-<div class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark"  >
+    <div class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">
-            <img src="../assets/APLogo-20-20.png" alt="logo" width="200">
+            <img src="../assets/APLogo-20-20.png" alt="logo" width="20px">
         </a>
-        
+
         <button class="navbar-toggler collapsed" type="button" (click)="toggleState()">
             <span class="navbar-toggler-icon"></span>
         </button>
-        
+
         <div class="collapse navbar-collapse" [ngClass]="{ 'collapse': isCollapse }">
             <ul class="navbar-nav mr-auto">
                 <li routerlinkactive="active" class="nav-item">
-                <a class="nav-link" href="#about">About<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#about">About<span class="sr-only">(current)</span></a>
                 </li>
                 <li routerlinkactive="active" class="nav-item">
-                <a class="nav-link" href="#experience">Experiencia</a>
+                    <a class="nav-link" href="#experience">Experiencia</a>
                 </li>
                 <li routerlinkactive="active" class="nav-item">
-                <a class="nav-link" href="#education">Educación</a>
+                    <a class="nav-link" href="#education">Educación</a>
                 </li>
                 <li routerlinkactive="active" class="nav-item">
-                <a class="nav-link" href="#projects">Projectos</a>
+                    <a class="nav-link" href="#projects">Projectos</a>
                 </li>
                 <li routerlinkactive="active" class="nav-item">
-                <a class="nav-link" href="#skills">Habilidades</a>
+                    <a class="nav-link" href="#skills">Habilidades</a>
                 </li>
                 <li routerlinkactive="active" class="nav-item">
-                <a class="nav-link" href="#contact">Contacto</a>
+                    <a class="nav-link" href="#contact">Contacto</a>
+                </li>
+                <li routerlinkactive="active" class="nav-item">
+                    <a href="/login">login</a>
                 </li>
             </ul>
 
-            <ul class="nav navbar-nav navbar-right" *ngIf="!loggedIn">
+            <ul class="navbar-nav navbar-right" *ngIf="!loggedIn">
                 <li routerLinkActive="active" class="nav-item">
-                    <a class="nav-link" routerLink="/login">
+                    <a class="nav-link" routerLink="/logins">
                         <i class="fa fa-lock" aria-hidden="true"></i> Login
                     </a>
                 </li>
-                <!--<li routerLinkActive="active" class="nav-item">
-                    <a class="nav-link" routerLink="/registro">
-                    <i class="fa fa-plus-square-o" aria-hidden="true"></i> Sign up</a>
-                </li>-->
             </ul>
 
-			<ul class="nav navbar-nav navbar-right" *ngIf="loggedIn">
-              <li *ngIf="loggedUser">
-                <a class="nav-link disabled"><i class="fa fa-user" aria-hidden="true"></i>
-                  {{loggedUser}}
-                </a>
-              </li>
-              <li>
-                <a class="nav-link" (click)="logout()">Logout
-                <i class="fa fa-sign-out" aria-hidden="true"></i>
-                </a>
-              </li>
-            </ul>     
+            <ul class="navbar-nav navbar-right" *ngIf="loggedIn">
+                <li *ngIf="loggedUser">
+                    <a class="nav-link disabled"><i class="fa fa-user" aria-hidden="true"></i>
+                        {{loggedUser}}
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-link" (click)="logout()">Logout
+                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
 
-    <div class="navbar-collapse"
-        [ngClass]="{ 'collapse': true }">
+    <div class="navbar-collapse" [ngClass]="{ 'collapse': true }">
         <ul class="nav navbar-nav">
-           <li><a>Link 1</a><li>
-           <li><a>Link 2</a><li>
+            <li><a>Link 1</a>
+            <li>
+            <li><a>Link 2</a>
+            <li>
         </ul>
     </div>
 

@@ -4,13 +4,13 @@
 	border-width: 2px;
 }
 
-.botones {
+/*.botones {
 	float: right;
 	position: relative;
 	list-style-type: none;
 	text-align: right;
 	z-index: 10;
-}
+}*/
 
 .orden {
   
@@ -23,7 +23,6 @@
 	z-index: 10;
 
 }
-
 
 
 #abajo{
