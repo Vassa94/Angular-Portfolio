@@ -1,10 +1,11 @@
 <!-- El encabezado de la página. -->
+<div class="botones">
+  <button *ngIf="loG()" type="button" class="btn edicion btn-outline-secondary" (click)="edit(content)">
+    <i class="fa fa-pencil-square"></i>
+  </button>
+</div>
 <div id="lead">
-  <div class="botones">
-        <button *ngIf="loG()" type="button" class="btn edicion btn-outline-secondary" (click)="edit(content)">
-          <i class="fa fa-pencil-square"></i>
-        </button>
-  </div>
+  
 
   <!-- El contenido de la sección principal. -->
   <div id="lead-content">
@@ -22,7 +23,7 @@
   <!-- Un botón que te lleva a la siguiente sección. -->
  
   <div id="lead-down">
-    <span>
+    <span style="display: flex;justify-content: center; align-items: center;">
       <a class="nav-link" href="#about">
         <i class="fa-solid fa-chevron-down"></i>
       </a>
