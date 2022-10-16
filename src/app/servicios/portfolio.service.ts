@@ -5,6 +5,8 @@ import { Observable, Subject, tap } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
+
+
 export class PortfolioService {
   private _refresh$ = new Subject<void>();
 
@@ -14,18 +16,22 @@ export class PortfolioService {
     return this._refresh$;
   }
 
+  api = 'https://portfoliobackendvassallo.herokuapp.com'
+
   obtenerDatos(): Observable<any> {
     return this.http.get('./assets/data/data.json');
     //return this.http.get("http://localhost:8080/personas/traer");
   }
 
   getHeader(): Observable<any> {
-    return this.http.get('http://localhost:8080/personas/traer/1');
+    console.log(this.api+'/personas/traer/1');
+    
+    return this.http.get(this.api+'/personas/traer/1');
   }
 
   putHeader(body): Observable<object> {
     return this.http
-      .put<any>('http://localhost:8080/personas/editar/1', body)
+      .put<any>(this.api+'/personas/editar/1', body)
       .pipe(
         tap(() => {
           this._refresh$.next();
@@ -35,12 +41,12 @@ export class PortfolioService {
   }
 
   getEduc(): Observable<any> {
-    return this.http.get('http://localhost:8080/educacion/traer');
+    return this.http.get(this.api+'/educacion/traer');
   }
 
   deleteEduc(id): Observable<object> {
     return this.http
-      .delete('http://localhost:8080/educacion/borrar/' + id)
+      .delete(this.api+'/educacion/borrar/' + id)
       .pipe(
         tap(() => {
           this._refresh$.next();
@@ -50,7 +56,7 @@ export class PortfolioService {
   }
 
   postEduc(body): Observable<any> {
-    return this.http.post('http://localhost:8080/educacion/crear', body).pipe(
+    return this.http.post(this.api+'/educacion/crear', body).pipe(
       tap(() => {
         this._refresh$.next();
         console.log('obserbable iniciado');
@@ -60,7 +66,7 @@ export class PortfolioService {
 
   putEduc(id, body): Observable<object> {
     return this.http
-      .put<any>('http://localhost:8080/educacion/editar/' + id, body)
+      .put<any>(this.api+'/educacion/editar/' + id, body)
       .pipe(
         tap(() => {
           this._refresh$.next();
@@ -70,11 +76,11 @@ export class PortfolioService {
   }
 
   getExp(): Observable<any> {
-    return this.http.get('http://localhost:8080/experiencia/traer');
+    return this.http.get(this.api+'/experiencia/traer');
   }
 
   postExp(body): Observable<any> {
-    return this.http.post('http://localhost:8080/experiencia/crear', body).pipe(
+    return this.http.post(this.api+'/experiencia/crear', body).pipe(
       tap(() => {
         this._refresh$.next();
         console.log('obserbable iniciado');
@@ -84,7 +90,7 @@ export class PortfolioService {
 
   putExp(id, body): Observable<object> {
     return this.http
-      .put<any>('http://localhost:8080/experiencia/editar/' + id, body)
+      .put<any>(this.api+'/experiencia/editar/' + id, body)
       .pipe(
         tap(() => {
           this._refresh$.next();
@@ -95,7 +101,7 @@ export class PortfolioService {
 
   deleteExp(id): Observable<object> {
     return this.http
-      .delete('http://localhost:8080/experiencia/borrar/' + id)
+      .delete(this.api+'/experiencia/borrar/' + id)
       .pipe(
         tap(() => {
           this._refresh$.next();
@@ -107,12 +113,12 @@ export class PortfolioService {
  
 
   getProyec(): Observable<any> {
-    return this.http.get('http://localhost:8080/proyectos/traer')
+    return this.http.get(this.api+'/proyectos/traer')
     
   }
 
   postProyect(body): Observable<any> {
-    return this.http.post('http://localhost:8080/proyectos/crear', body)
+    return this.http.post(this.api+'/proyectos/crear', body)
     .pipe(
       tap(() => {
         this._refresh$.next();
@@ -123,7 +129,7 @@ export class PortfolioService {
 
   putProyect(id, body): Observable<object> {
     return this.http
-      .put<any>('http://localhost:8080/proyectos/editar/' + id, body)
+      .put<any>(this.api+'/proyectos/editar/' + id, body)
       .pipe(
         tap(() => {
           this._refresh$.next();
@@ -134,7 +140,7 @@ export class PortfolioService {
 
   deleteProyect(id): Observable<object> {
     return this.http
-      .delete('http://localhost:8080/proyectos/borrar/' + id)
+      .delete(this.api+'/proyectos/borrar/' + id)
       .pipe(
         tap(() => {
           this._refresh$.next();
@@ -145,11 +151,11 @@ export class PortfolioService {
 
 
   getSkills(): Observable<any> {
-    return this.http.get('http://localhost:8080/habilidades/traer');
+    return this.http.get(this.api+'/habilidades/traer');
   }
 
   postSkill(body): Observable<any> {
-    return this.http.post('http://localhost:8080/habilidades/crear', body)
+    return this.http.post(this.api+'/habilidades/crear', body)
     .pipe(
       tap(() => {
         this._refresh$.next();
@@ -160,7 +166,7 @@ export class PortfolioService {
 
   putSkill(id, body): Observable<object> {
     return this.http
-      .put<any>('http://localhost:8080/habilidades/editar/' + id, body)
+      .put<any>(this.api+'/habilidades/editar/' + id, body)
       .pipe(
         tap(() => {
           this._refresh$.next();
@@ -171,7 +177,7 @@ export class PortfolioService {
 
   deleteSkill(id): Observable<object> {
     return this.http
-      .delete('http://localhost:8080/habilidades/borrar/' + id)
+      .delete(this.api+'/habilidades/borrar/' + id)
       .pipe(
         tap(() => {
           this._refresh$.next();

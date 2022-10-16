@@ -25,6 +25,8 @@ export class SobreMiComponent implements OnInit,OnDestroy {
 
   ngOnInit(): void {
     this.getHeader();
+    
+    
 
     this.datosPortfolio.refresh$.subscribe(result =>{
       this.getHeader();
@@ -40,6 +42,7 @@ export class SobreMiComponent implements OnInit,OnDestroy {
     this.datosPortfolio.getHeader().subscribe((data) => {
       this.miInfo = data;
     });
+    console.log(this.loG());
   }
 
   open(content) {
