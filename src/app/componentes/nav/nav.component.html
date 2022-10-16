@@ -1,14 +1,18 @@
 <nav>
+    <!-- Esta es la barra de navegación. -->
     <div class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">
-            <img src="../assets/APLogo-20-20.png" alt="logo" width="20px">
+            <img src="../assets/APLogo-20-20.png" alt="logo" width="200">
         </a>
 
+        <!-- El botón que cambia el menú. -->
         <button class="navbar-toggler collapsed" type="button" (click)="toggleState()">
             <span class="navbar-toggler-icon"></span>
         </button>
 
+        <!-- El código de la barra de navegación. -->
         <div class="collapse navbar-collapse" [ngClass]="{ 'collapse': isCollapse }">
+            <!-- Este es el código de la barra de navegación. -->
             <ul class="navbar-nav mr-auto">
                 <li routerlinkactive="active" class="nav-item">
                     <a class="nav-link" href="#about">About<span class="sr-only">(current)</span></a>
@@ -28,41 +32,30 @@
                 <li routerlinkactive="active" class="nav-item">
                     <a class="nav-link" href="#contact">Contacto</a>
                 </li>
-                <li routerlinkactive="active" class="nav-item">
-                    <a href="/login">login</a>
-                </li>
             </ul>
 
+            <!-- El código para el botón de inicio de sesión. -->
             <ul class="navbar-nav navbar-right" *ngIf="!loggedIn">
                 <li routerLinkActive="active" class="nav-item">
-                    <a class="nav-link" routerLink="/logins">
+                    <a class="nav-link" href="/login">
                         <i class="fa fa-lock" aria-hidden="true"></i> Login
                     </a>
                 </li>
             </ul>
-
             <ul class="navbar-nav navbar-right" *ngIf="loggedIn">
                 <li *ngIf="loggedUser">
-                    <a class="nav-link disabled"><i class="fa fa-user" aria-hidden="true"></i>
-                        {{loggedUser}}
+                    <a class="nav-link disabled" style="padding-right:10px ;">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        {{loggedUser}}  
                     </a>
                 </li>
                 <li>
-                    <a class="nav-link" (click)="logout()">Logout
+                    <a class="nav-link" (click)="logout()" href="#"> Logout
                         <i class="fa fa-sign-out" aria-hidden="true"></i>
                     </a>
                 </li>
             </ul>
         </div>
     </div>
-
-    <div class="navbar-collapse" [ngClass]="{ 'collapse': true }">
-        <ul class="nav navbar-nav">
-            <li><a>Link 1</a>
-            <li>
-            <li><a>Link 2</a>
-            <li>
-        </ul>
-    </div>
-
 </nav>
+
