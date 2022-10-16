@@ -80,6 +80,8 @@ export class HeaderComponent implements OnInit {
   }
 
   edit (content){
+    console.log(this.loG());
+    
     this.personaform.setValue({nombre:this.miPortfolio.nombre,apellido:this.miPortfolio.apellido,titulo:this.miPortfolio.titulo});
       
     this.openVerticallyCentered(content);
