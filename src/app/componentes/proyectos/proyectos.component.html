@@ -1,6 +1,10 @@
-  <!-- Un botón que abrirá un modal para agregar un nuevo proyecto. -->
-<div class="edicion bot " *ngIf="loG()">
-  <button type="button" class="btn edicion btn-outline-secondary" (click)="add(content)">
+<!-- Un botón que abrirá un modal para agregar un nuevo proyecto. -->
+<div class="edicion bot" *ngIf="loG()">
+  <button
+    type="button"
+    class="btn edicion btn-outline-secondary"
+    (click)="add(content)"
+  >
     <i class="fa fa-square-plus"></i>
   </button>
 </div>
@@ -8,77 +12,77 @@
 <div id="projects" class="background-alt">
   <h2 class="heading">Proyectos</h2>
 
-  <!-- Un bucle que creará un nuevo bloque para cada proyecto en la matriz
-        `misProyectos`. -->
-          <div class="contain">
-            <div class="disposicion">
-              <div class="card" *ngFor="let proyecto of misProyectos">
-                <img [src]="proyecto.imgUrl" class="card-img-top" alt="img">
-                <div class="card-body">
-                  <h4 class="card-title">{{ proyecto.nombre }}</h4>
-                  <p class="card-text">{{ proyecto.descripcion }}</p>
-                </div>
-                <div style="flex-direction:row; ">
-                  <ul class="editcard" *ngIf="loG()">
-                    <li>
-                      <button type="button" class="btn btn-link" (click)="edit(content,proyecto)">
-                        <i class="fa-solid fa-pen-to-square"></i>
-                      </button>
-                    </li>
-                    <li>
-                      <button class="btn btn-link" color=#6c757d (click)="borrarBloque(proyecto.id)">
-                        <i class="fa-solid fa-xmark"></i>
-                      </button>
-                    </li>
-                  </ul>
-                </div>
-                <a [href]="proyecto.linkUrl" target="_blank" class="proyecto btn btn-primary">Ver</a>
-              </div>
-          
-            </div>
-          </div>
-
-      
-    
-    <!-- <div class="container" style="align-items: center ;">
-    <div style="display:inline-flex;">
-      <div class="" *ngFor="let proyecto of misProyectos">
-
-        <div class="card">
-          <img [src]="proyecto.imgUrl" class="card-img-top" alt="img">
-          <div class="card-body">
-            <h4 class="card-title">{{ proyecto.nombre }}</h4>
-            <p class="card-text">{{ proyecto.descripcion }}</p>
-          </div>
-          <a [href]="proyecto.linkUrl" target="_blank" class="proyecto btn btn-primary">Ver</a>
+  <!-- Un bucle que creará un nuevo bloque para cada proyecto -->
+  <div class="contain">
+    <div class="disposicion">
+      <div class="card" *ngFor= "let proyecto of misProyectos; let i = index">
+        <img [src]="proyecto.imgUrl" class="card-img-top" alt="img" />
+        <div class="card-body">
+          <h4 class="card-title">{{ proyecto.nombre }}</h4>
+          <p class="card-text">{{ proyecto.descripcion }}</p>
         </div>
-
+        <div style="flex-direction: row">
+          <ul class="editcard" *ngIf="loG()">
+            <li>
+              <button
+                type="button"
+                class="btn btn-link"
+                (click)="edit(content, proyecto)"
+              >
+                <i class="fa-solid fa-pen-to-square"></i>
+              </button>
+            </li>
+            <li>
+              <button
+                class="btn btn-link"
+                color="#6c757d"
+                (click)="borrarBloque(proyecto.id,i)"
+              >
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </li>
+          </ul>
+        </div>
+        <a
+          [href]="proyecto.linkUrl"
+          target="_blank"
+          class="proyecto btn btn-primary"
+          >Ver</a
+        >
       </div>
     </div>
-  </div> -->
+  </div>
 
+  <!--Modal para agregar proyectos-->
 </div>
-
 <ng-template #content let-modal>
-  <div class="modal-header" >
+  <div class="modal-header">
     <h2 class="modal-title">Proyectos</h2>
-    <button type="button" class="close edicion" data-dismiss="modal" (click)="modal.dismiss('Cross click')">
+    <button
+      type="button"
+      class="close edicion"
+      data-dismiss="modal"
+      (click)="modal.dismiss('Cross click')"
+    >
       <i class="fa fa-times"></i>
     </button>
   </div>
   <div class="modal-body">
-
     <form [formGroup]="proyform" (ngSubmit)="form()">
-
       <div class="form-group">
-
         <div class="mb-3">
           <label for="nombre">Nombre del proyecto</label>
           <div>
-            <input name="nombre" class="form-control" formControlName="nombre" />
+            <input
+              name="nombre"
+              class="form-control"
+              formControlName="nombre"
+            />
           </div>
         </div>
 
+        <!--Drag and drop para la imagen de proyecto. sin terminar-->
+        <!--  
         <div class="mb-3">
           <div class="dropzone" appDnd (fileDropped)="onFileDropped($event)">
             <input type="file" name="imagen" #fileDropRef id="fileDropRef" multiple
@@ -135,13 +139,18 @@
               </svg>
             </div>
           </div>
-        </div>
+        </div>-->
 
         <div class="mb-3">
           <label for="imgUrl">Url de la Imagen</label>
-          <span>            
+          <span>
             <div>
-              <input type="url" name="imgUrl" class="form-control" formControlName="imgUrl" />
+              <input
+                type="url"
+                name="imgUrl"
+                class="form-control"
+                formControlName="imgUrl"
+              />
             </div>
           </span>
         </div>
@@ -149,64 +158,39 @@
         <div class="mb-3">
           <label for="descripcion">Descripción</label>
           <div>
-            <textarea rows="3" name="descripcion" class="form-control"
-              formControlName="descripcion"></textarea>
+            <textarea
+              rows="3"
+              name="descripcion"
+              class="form-control"
+              formControlName="descripcion"
+            ></textarea>
           </div>
         </div>
 
         <div class="mb-3">
           <label for="linkUrl">Link del proyecto</label>
           <div>
-            <input type="url" name="linkUrl" class="form-control" formControlName="linkUrl" />
+            <input
+              type="url"
+              name="linkUrl"
+              class="form-control"
+              formControlName="linkUrl"
+            />
           </div>
         </div>
-
       </div>
 
       <div class="modal-footer input-group">
-        <button type="submit" class="btn btn-success btn-modal" (click)="modal.close('Save click')">
+        <button
+          type="submit"
+          class="btn btn-success btn-modal"
+          (click)="modal.close('Save click')"
+        >
           Guardar cambios
         </button>
       </div>
     </form>
-
   </div>
 </ng-template>
 
 <app-skills></app-skills>
-
-
-
-<!--Seccion backups -->
-
-<!-- <div class="container" style="align-items: center ;">
-    <div style="display:inline-flex;">
-      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-  
-          <div class="carousel-item" data-interval="10000" *ngFor="let proyecto of misProyectos let i =index" [ngClass]="{'active': i == 0 }">
-          
-            <div class="card">
-              <img [src]="proyecto.imgUrl" class="card-img-top" alt="img">
-              <div class="card-body">
-                <h4 class="card-title">{{ proyecto.nombre }}</h4>
-                <p class="card-text">{{ proyecto.descripcion }}</p>
-              </div>
-              <a [href]="proyecto.linkUrl" target="_blank" class="proyecto btn btn-primary">Ver</a>
-            </div>
-          </div>
-          </div>
-  
-          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-        </div>
-
-      
-    </div>
-  </div>-->

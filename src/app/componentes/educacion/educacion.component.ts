@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ChangeDetectorRef    } from '@angular/core';
 import { PortfolioService } from 'src/app/servicios/portfolio.service';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { AppComponent } from 'src/app/app.component';
@@ -12,6 +12,7 @@ import Swal from 'sweetalert2';
   selector: 'app-educacion',
   templateUrl: './educacion.component.html',
   styleUrls: ['./educacion.component.css'],
+ 
 })
 export class EducacionComponent implements OnInit, OnDestroy {
   miEducacion: any;
@@ -22,7 +23,8 @@ export class EducacionComponent implements OnInit, OnDestroy {
   constructor(
     private datosPortfolio: PortfolioService,
     private modalService: NgbModal,
-    private appComponent: AppComponent
+    private appComponent: AppComponent,
+    private changeDetection: ChangeDetectorRef
   ) {}
 
   eduform = new FormGroup({
@@ -40,7 +42,7 @@ export class EducacionComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.getEducacion();
 
-    this.datosPortfolio.refresh$.subscribe((result) => {
+    this.suscription = this.datosPortfolio.refresh$.subscribe(() => {
       this.getEducacion();
     });
   }
@@ -145,7 +147,7 @@ export class EducacionComponent implements OnInit, OnDestroy {
     this.miEducacion.push(body);
   }
 
-  borrarBloque(id) {
+  borrarBloque(id,i) {
     this.datosPortfolio.deleteEduc(id).subscribe((data) => {});
     Swal.fire({
       title: '¡Genial!',
@@ -154,7 +156,7 @@ export class EducacionComponent implements OnInit, OnDestroy {
       showConfirmButton: false,
       timer: 1500,
     });
-    this.getEducacion();
+    this.miEducacion.splice(i,1);
   }
 
   actualizarBloque() {
@@ -178,6 +180,5 @@ export class EducacionComponent implements OnInit, OnDestroy {
       showConfirmButton: false,
       timer: 1500,
     });
-    this.getEducacion();
   }
 }

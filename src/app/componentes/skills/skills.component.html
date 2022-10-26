@@ -7,7 +7,7 @@
 <div id="skills">
     <h2 class="heading">Habilidades</h2>
     <ul>
-        <ng-container *ngFor="let skill of skills">
+        <ng-container *ngFor=  "let skill of skills; let i = index">
             <li class="skill card">
                 <button type="button" 
                         class="btn btn-sm btn-link" 
@@ -19,7 +19,7 @@
                 <button type="button" 
                         class="btn btn-sm btn-link" 
                         style="float:right;" 
-                        (click)="borrarBloque(skill.id)"    
+                        (click)="borrarBloque(skill.id,i)"    
                         *ngIf="loG()">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
