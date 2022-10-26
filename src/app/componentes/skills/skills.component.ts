@@ -106,7 +106,7 @@ export class SkillsComponent implements OnInit, OnDestroy {
       timer: 1500
     });
     
-    this.getSkills();
+    this.skills.push(body);
   }
 
   actualizarBloque(){
@@ -128,7 +128,7 @@ export class SkillsComponent implements OnInit, OnDestroy {
   }
 
   
-  borrarBloque(id) {
+  borrarBloque(id,i) {
     Swal.fire({
       title: '¿Seguro quiere borrar este proyecto?',
       showCancelButton: true,
@@ -147,7 +147,7 @@ export class SkillsComponent implements OnInit, OnDestroy {
       } 
     })
     
-    this.getSkills();
+    this.skills.splice(i,1);
   }
 
  

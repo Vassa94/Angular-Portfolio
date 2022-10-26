@@ -52,6 +52,7 @@ export class ExperienciaComponent implements OnInit {
     this.datosPortfolio.getExp().subscribe((data) => {
       this.miExperiencia = data;
     });
+    
   }
 
   
@@ -154,10 +155,10 @@ export class ExperienciaComponent implements OnInit {
       showConfirmButton: false,
       timer: 1500
     });
-    this.getExp();
+    this.miExperiencia.push(body);
   }
 
-  borrarBloque(id) {
+  borrarBloque(id,i) {
     this.datosPortfolio.deleteExp(id).subscribe((data) => {});
     Swal.fire({
       title: '¡Genial!',
@@ -166,7 +167,7 @@ export class ExperienciaComponent implements OnInit {
       showConfirmButton: false,
       timer: 1500
     });
-    this.getExp();
+    this.miExperiencia.splice(i,1);
   }
 
   actualizarBloque(){

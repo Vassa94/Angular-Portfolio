@@ -16,7 +16,6 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from '../environments/environment';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import Swal from 'sweetalert2';
-import {CarouselModule} from 'primeng/carousel';
 import { CardModule } from 'primeng/card';
 
 
@@ -31,7 +30,6 @@ import { ContactoComponent } from './componentes/contacto/contacto.component';
 import { NavComponent } from './componentes/nav/nav.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { RouterModule } from '@angular/router';
-//import { routes } from './app-routing.module';
 import { FooterComponent } from './componentes/footer/footer.component';
 import { DndDirective } from './directiva/dnd.directive';
 import { ProgresoComponent } from './componentes/proyectos/progreso/progreso.component';
@@ -79,7 +77,6 @@ import { InterceptorService } from './servicios/interceptor.service';
     RouterModule,
     ReactiveFormsModule,
     MatCheckboxModule,
-    CarouselModule,
     CardModule
     
     

@@ -3,47 +3,43 @@ import { PortfolioService } from 'src/app/servicios/portfolio.service';
 import { AppComponent } from 'src/app/app.component';
 import { Subscription } from 'rxjs';
 import { FormControl, FormGroup } from '@angular/forms';
-import {  ModalDismissReasons,NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { HttpParams } from '@angular/common/http';
 import Swal from 'sweetalert2';
-
 
 @Component({
   selector: 'app-proyectos',
   templateUrl: './proyectos.component.html',
-  styleUrls: ['./proyectos.component.scss'],
+  styleUrls: ['./proyectos.component.css'],
 })
 export class ProyectosComponent implements OnInit, OnDestroy {
   responsiveOptions;
   misProyectos: any;
   closeResult: any;
-  proyId:number;
+  proyId: number;
   suscription: Subscription;
   files: any[] = [];
-
 
   constructor(
     private datosPortfolio: PortfolioService,
     private modalService: NgbModal,
     private appComponent: AppComponent
-  ){ }
+  ) {}
 
   proyform = new FormGroup({
     nombre: new FormControl(''),
     imgUrl: new FormControl(),
     descripcion: new FormControl(),
     linkUrl: new FormControl(),
-    edit: new FormControl()   
+    edit: new FormControl(),
   });
-
 
   ngOnInit(): void {
     this.getProyect();
 
-    this.datosPortfolio.refresh$.subscribe(result =>{
+    this.datosPortfolio.refresh$.subscribe((result) => {
       this.getProyect();
-    })
-    
+    });
   }
 
   ngOnDestroy(): void {
@@ -51,7 +47,7 @@ export class ProyectosComponent implements OnInit, OnDestroy {
     console.log('obserbable cerrado');
   }
 
-  getProyect ():void{
+  getProyect(): void {
     this.datosPortfolio.getProyec().subscribe((data) => {
       this.misProyectos = data;
     });
@@ -61,33 +57,30 @@ export class ProyectosComponent implements OnInit, OnDestroy {
     return this.appComponent.loggedIn;
   }
 
-  
-
   openVerticallyCentered(content) {
     this.modalService.open(content, { centered: true, size: 'lg' });
   }
 
   add(content) {
     this.proyform.setValue({
-      nombre:'',
-      imgUrl:'',
+      nombre: '',
+      imgUrl: '',
       descripcion: '',
       linkUrl: '',
-      edit: 0
+      edit: 0,
     });
     this.openVerticallyCentered(content);
   }
 
-  edit(content2,proyect){
-    console.log(proyect);
+  edit(content2, proyect) {
     this.proyform.setValue({
       nombre: proyect.nombre,
       imgUrl: proyect.imgUrl,
       descripcion: proyect.descripcion,
       linkUrl: proyect.linkUrl,
-      edit:1
+      edit: 1,
     });
-    this.proyId=proyect.id;
+    this.proyId = proyect.id;
     this.openVerticallyCentered(content2);
   }
 
@@ -99,29 +92,28 @@ export class ProyectosComponent implements OnInit, OnDestroy {
     }
   }
 
-  agregarBloque (){
-    
+  agregarBloque() {
     const body = {
-      nombre:this.proyform.value.nombre,
-      imgUrl:this.proyform.value.imgUrl,
+      nombre: this.proyform.value.nombre,
+      imgUrl: this.proyform.value.imgUrl,
       descripcion: this.proyform.value.descripcion,
       linkUrl: this.proyform.value.linkUrl,
-      perId:1,
-    }
+      perId: 1,
+    };
     this.datosPortfolio.postProyect(body).subscribe((data) => {});
-    
+
     Swal.fire({
       title: '¡Genial!',
       text: 'Información agregada',
       icon: 'success',
       showConfirmButton: false,
-      timer: 1500
+      timer: 1500,
     });
     
-    this.getProyect();
+    this.misProyectos.push(body);
   }
-  
-  borrarBloque(id) {
+
+  borrarBloque(id,i) {
     Swal.fire({
       title: '¿Seguro quiere borrar este proyecto?',
       showCancelButton: true,
@@ -135,56 +127,49 @@ export class ProyectosComponent implements OnInit, OnDestroy {
           text: 'Información borrada',
           icon: 'success',
           showConfirmButton: false,
-          timer: 1500
+          timer: 1500,
         });
-      } 
-    })
-    
-    this.getProyect();
+      }
+    });
+
+    this.misProyectos.splice(i,1);
   }
 
-  actualizarBloque(){
+  actualizarBloque() {
     const params = new HttpParams()
       .set('nombre', this.proyform.value.nombre)
       .set('imgUrl', this.proyform.value.imgUrl)
       .set('descripcion', this.proyform.value.descripcion)
       .set('linkUrl', this.proyform.value.linkUrl)
-      .set('perId',1)
-    this.datosPortfolio.putProyect(this.proyId,params).subscribe((data) => {});
+      .set('perId', 1);
+    this.datosPortfolio.putProyect(this.proyId, params).subscribe((data) => {});
     Swal.fire({
       title: '¡Genial!',
       text: 'Información editada',
       icon: 'success',
       showConfirmButton: false,
-      timer: 1500
+      timer: 1500,
     });
+
     this.getProyect();
   }
 
-  
-   //on file drop handler
+  //parte del Drag n Drop para las imagenes. sin terminar
+  /*
    
    onFileDropped($event) {
     this.prepareFilesList($event);
   }
 
-  //handle file from browsing
    
   fileBrowseHandler(files) {
     this.prepareFilesList(files);
   }
 
-  /**
-   * Delete file from files list
-   * @param index (File index)
-   */
   deleteFile(index: number) {
     this.files.splice(index, 1);
   }
 
-  /**
-   * Simulate the upload process
-   */
   uploadFilesSimulator(index: number) {
     setTimeout(() => {
       if (index === this.files.length) {
@@ -202,10 +187,6 @@ export class ProyectosComponent implements OnInit, OnDestroy {
     }, 1000);
   }
 
-  /**
-   * Convert Files list to normal array list
-   * @param files (Files List)
-   */
   prepareFilesList(files: Array<any>) {
     for (const item of files) {
       item.progress = 0;
@@ -214,11 +195,6 @@ export class ProyectosComponent implements OnInit, OnDestroy {
     this.uploadFilesSimulator(0);
   }
 
-  /**
-   * format bytes
-   * @param bytes (File size in bytes)
-   * @param decimals (Decimals point)
-   */
   formatBytes(bytes, decimals) {
     if (bytes === 0) {
       return '0 Bytes';
@@ -230,5 +206,5 @@ export class ProyectosComponent implements OnInit, OnDestroy {
     return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
   }
 
-  
+  */
 }

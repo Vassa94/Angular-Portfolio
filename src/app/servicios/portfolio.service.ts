@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject, tap } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -20,7 +21,6 @@ export class PortfolioService {
 
   obtenerDatos(): Observable<any> {
     return this.http.get('./assets/data/data.json');
-    //return this.http.get("http://localhost:8080/personas/traer");
   }
 
   getHeader(): Observable<any> {
@@ -35,13 +35,14 @@ export class PortfolioService {
       .pipe(
         tap(() => {
           this._refresh$.next();
-          console.log('obserbable iniciado');
         })
       );
   }
 
   getEduc(): Observable<any> {
-    return this.http.get(this.api+'/educacion/traer');
+    return this.http
+      .get(this.api+'/educacion/traer')
+      
   }
 
   deleteEduc(id): Observable<object> {
@@ -50,17 +51,17 @@ export class PortfolioService {
       .pipe(
         tap(() => {
           this._refresh$.next();
-          console.log('obserbable iniciado');
         })
       );
   }
 
   postEduc(body): Observable<any> {
-    return this.http.post(this.api+'/educacion/crear', body).pipe(
-      tap(() => {
-        this._refresh$.next();
-        console.log('obserbable iniciado');
-      })
+    return this.http
+      .post(this.api+'/educacion/crear', body)
+      .pipe(
+        tap(() => {
+          this._refresh$.next();
+        })
     );
   }
 
@@ -70,7 +71,6 @@ export class PortfolioService {
       .pipe(
         tap(() => {
           this._refresh$.next();
-          console.log('obserbable iniciado');
         })
       );
   }
@@ -118,11 +118,11 @@ export class PortfolioService {
   }
 
   postProyect(body): Observable<any> {
-    return this.http.post(this.api+'/proyectos/crear', body)
+    return this.http
+    .post(this.api+'/proyectos/crear', body)
     .pipe(
       tap(() => {
         this._refresh$.next();
-        console.log('obserbable iniciado');
       })
     );
   }
@@ -144,7 +144,6 @@ export class PortfolioService {
       .pipe(
         tap(() => {
           this._refresh$.next();
-          console.log('obserbable iniciado');
         })
       );
   }
@@ -155,11 +154,11 @@ export class PortfolioService {
   }
 
   postSkill(body): Observable<any> {
-    return this.http.post(this.api+'/habilidades/crear', body)
+    return this.http
+    .post(this.api+'/habilidades/crear', body)
     .pipe(
       tap(() => {
         this._refresh$.next();
-        console.log('obserbable iniciado');
       })
     );
   }
@@ -170,7 +169,6 @@ export class PortfolioService {
       .pipe(
         tap(() => {
           this._refresh$.next();
-          console.log('obserbable iniciado');
         })
       );
   }
@@ -181,7 +179,6 @@ export class PortfolioService {
       .pipe(
         tap(() => {
           this._refresh$.next();
-          console.log('obserbable iniciado');
         })
       );
   }
