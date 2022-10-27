@@ -14,15 +14,15 @@
         id="experience-timeline" 
         cdkDrag>
     <div class="vtimeline-point">
-      <ul class="botones" *ngIf="loG()">
+      <ul class="edit" *ngIf="loG()">
         <li class="orden">
           <button type="button" class="btn btn-sm btn-link" (click)="edit(content2,exp)">
-            <i class="fa fa-pencil-square"></i>
+            <i class="fa-solid fa-pen-to-square"></i>
           </button>
         </li>
         <li class="orden">
           <button class="btn btn-link btn-sm" (click)="borrarBloque(exp.id,i)">
-            <i class="fa fa-square-xmark"></i>
+            <i class="fa-solid fa-xmark"></i>
           </button>
         </li>
       </ul>
