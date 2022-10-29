@@ -60,6 +60,23 @@ export class EducacionComponent implements OnInit, OnDestroy {
 
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.miEducacion, event.previousIndex, event.currentIndex);
+    console.log("Anterior; "+event.previousIndex);
+    console.log("Actual; "+event.currentIndex);
+    console.log(this.miEducacion);
+
+    /*for (let i = 0; this.miEducacion.length; i++) {
+    const params = new HttpParams()
+      .set('titulo', this.miEducacion[i].titulo)
+      .set('fechaInicio', this.miEducacion[i].fechaInicio)
+      .set('fechaFin', this.miEducacion[i].fechaFin)
+      .set('actual', this.miEducacion[i].actual)
+      .set('nombre', this.miEducacion[i].nombre)
+      .set('descripcion', this.miEducacion[i].descripcion)
+      .set('per_Id', 1);
+
+  this.datosPortfolio.putEduc((i+1), params).subscribe((data) => {});
+    
+   }*/
   }
 
   public loG() {
@@ -170,7 +187,7 @@ export class EducacionComponent implements OnInit, OnDestroy {
       .set('actual', this.eduform.value.actual)
       .set('nombre', this.eduform.value.nombre)
       .set('descripcion', this.eduform.value.descripcion)
-      .set('perId', 1);
+      .set('per_Id', 1);
 
     this.datosPortfolio.putEduc(this.eduId, params).subscribe((data) => {});
     Swal.fire({

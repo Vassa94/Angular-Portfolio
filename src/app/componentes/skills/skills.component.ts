@@ -95,6 +95,7 @@ export class SkillsComponent implements OnInit, OnDestroy {
     const body = {
       nombre:this.skillform.value.nombre,
       nivel:this.skillform.value.nivel,
+      perId:1,
     }
     this.datosPortfolio.postSkill(body).subscribe((data) => {});
     

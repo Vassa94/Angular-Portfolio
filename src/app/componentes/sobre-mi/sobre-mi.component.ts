@@ -42,7 +42,7 @@ export class SobreMiComponent implements OnInit,OnDestroy {
     this.datosPortfolio.getHeader().subscribe((data) => {
       this.miInfo = data;
     });
-    console.log(this.loG());
+    console.log("Autentificacion; "+this.loG());
   }
 
   open(content) {

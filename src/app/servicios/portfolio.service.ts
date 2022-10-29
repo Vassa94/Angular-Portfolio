@@ -24,8 +24,6 @@ export class PortfolioService {
   }
 
   getHeader(): Observable<any> {
-    console.log(this.api+'/personas/traer/1');
-    
     return this.http.get(this.api+'/personas/traer/1');
   }
 
