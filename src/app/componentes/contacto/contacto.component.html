@@ -5,19 +5,18 @@
         <form [formGroup]="FormData" (ngSubmit)="onSubmit(FormData.value)">
             <div class="form-group">
                 <input type="email" class="form-control" name="Email" aria-describedby="emailHelp"
-                    placeholder="Enter email" formControlName="Email">
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                    else.</small>
+                    placeholder="Email" formControlName="Email">
+                
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" name="Fullname" placeholder="Full Name"
+                <input type="text" class="form-control" name="Fullname" placeholder="Nombre completo"
                     formControlName="Fullname">
             </div>
             <div class="form-group">
                 <textarea class="form-control" formControlName="Comment" name="Comment">
             </textarea>
             </div>
-            <button type="submit" class="btn btn-primary" [disabled]="!FormData.valid">Submit</button>
+            <button type="submit" class="btn btn-primary" [disabled]="!FormData.valid">Enviar</button>
         </form>
 
     </div>

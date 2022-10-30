@@ -1,4 +1,4 @@
-    <!-- Un botón para agregar un nuevo bloque educativo. -->
+<!-- Un botón para agregar un nuevo bloque educativo. -->
 
 <div class="edicion botones " *ngIf="loG()">
   <button type="button" class="btn edicion btn-outline-secondary" (click)="add(content)">
@@ -7,30 +7,30 @@
 </div>
 
 <div id="education" cdkDropList (cdkDropListDropped)="drop($event)">
-    <h2 class="heading">Educación</h2>
-    <!-- Un bucle que itera sobre el arreglo `miEducacion` y crea un bloque para cada elemento del arreglo. -->
-    <div class="education-block" *ngFor= "let edu of miEducacion; let i = index " cdkDrag >
-        <ul class="edit" *ngIf="loG()">
-            <li class="orden">
-              <button type="button" class="btn btn-sm btn-link" (click)="edit(content,edu)">
-                <i class="fa-solid fa-pen-to-square"></i>
-              </button>
-            </li>
-            <li class="orden">
-              <button class="btn btn-link btn-sm" color=#6c757d (click)="borrarBloque(edu.id,i)">
-                <i class="fa-solid fa-xmark"></i>
-              </button>
-            </li>
-        </ul>
-        <h3>{{edu.nombre}}</h3>
-        <span class="education-date">{{edu.fechaInicio}} - {{edu.fechaFin}}</span>
-        <h4>{{edu.titulo}}</h4>
-        <p>{{edu.descripcion}}</p>
-        <div class="example-handle"  style="text-align: end;" cdkDragHandle >
-          <i class="fa-solid fa-hand" style="color:#0a58ca"  *ngIf="loG()" ></i>
-          
-        </div>
+  <h2 class="heading">Educación</h2>
+  <!-- Un bucle que itera sobre el arreglo `miEducacion` y crea un bloque para cada elemento del arreglo. -->
+  <div class="education-block" *ngFor="let edu of miEducacion; let i = index " cdkDrag>
+    <ul class="edit" *ngIf="loG()">
+      <li class="orden">
+        <button type="button" class="btn btn-sm btn-link" (click)="edit(content,edu)">
+          <i class="fa-solid fa-pen-to-square"></i>
+        </button>
+      </li>
+      <li class="orden">
+        <button class="btn btn-link btn-sm" color=#6c757d (click)="borrarBloque(edu.id,i)">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </li>
+    </ul>
+    <h3>{{edu.nombre}}</h3>
+    <span class="education-date">{{edu.fechaInicio}} - {{edu.fechaFin}}</span>
+    <h4>{{edu.titulo}}</h4>
+    <p>{{edu.descripcion}}</p>
+    <div class="example-handle" style="text-align: end;" cdkDragHandle>
+      <i class="fa-solid fa-hand" style="color:#0a58ca" *ngIf="loG()"></i>
+
     </div>
+  </div>
 </div>
 
 <!-- Creando un modal que se usará para agregar un nuevo bloque de educacion. -->
@@ -174,5 +174,3 @@
 </ng-template>
 
 <app-proyectos></app-proyectos>
-
-    
