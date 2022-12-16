@@ -10,6 +10,8 @@
 }
 
 .skill:hover{
+    
+    translate: 0px -5px;
     background-color: #cf2222;
     border-color: #161111;
 }

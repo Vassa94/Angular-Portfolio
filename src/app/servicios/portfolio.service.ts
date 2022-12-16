@@ -15,7 +15,7 @@ export class PortfolioService {
     return this._refresh$;
   }
 
-  api = 'https://portfoliobackendvassallo.herokuapp.com';
+  api = 'http://portfoliobackend-env.eba-cempuzyt.us-east-1.elasticbeanstalk.com';
   apiContacto = 'https://mailthis.to/vassalloignacio';
 
   obtenerDatos(): Observable<any> {
