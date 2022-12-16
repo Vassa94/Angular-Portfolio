@@ -31,14 +31,14 @@
     "@popperjs/core": "^2.11.5",
     "@types/scriptjs": "^0.0.2",
     "angular-bootstrap-md": "^13.0.0",
-    "bootstrap": "^5.2.0",
+    "bootstrap": "^5.2.3",
     "firebase": "^9.9.2",
     "mdb-ui-kit": "^4.4.0",
     "primeicons": "^5.0.0",
     "primeng": "^14.0.2",
     "rxjs": "~7.5.0",
     "scriptjs": "^2.5.9",
-    "sweetalert2": "^11.4.26",
+    "sweetalert2": "^11.4.8",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {

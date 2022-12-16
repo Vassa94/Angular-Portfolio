@@ -20,8 +20,10 @@
 }
 
 .perfil {
-	border-radius: 80%;
-	width: 75%*1vw;
+	object-fit: cover;
+  	width: 230px;
+  	height: 230px;
+	border-radius: 70%;	
 	box-shadow: 0px 0px 30px -11px black;
 	
 }
