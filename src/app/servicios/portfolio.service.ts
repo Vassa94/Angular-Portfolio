@@ -15,7 +15,7 @@ export class PortfolioService {
     return this._refresh$;
   }
 
-  api = 'http://portfoliobackend-env.eba-cempuzyt.us-east-1.elasticbeanstalk.com';
+  api = 'https://angular-portfolio-backend-production.up.railway.app/';
   apiContacto = 'https://mailthis.to/vassalloignacio';
 
   obtenerDatos(): Observable<any> {
