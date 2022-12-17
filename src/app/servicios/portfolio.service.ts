@@ -15,7 +15,7 @@ export class PortfolioService {
     return this._refresh$;
   }
 
-  api = 'https://angular-portfolio-backend-production.up.railway.app/';
+  api = 'https://portfolio-backend-vassa94.koyeb.app';
   apiContacto = 'https://mailthis.to/vassalloignacio';
 
   obtenerDatos(): Observable<any> {
