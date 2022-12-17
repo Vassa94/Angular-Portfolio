@@ -14,7 +14,7 @@
   
 
   <!-- El contenido de la sección principal. -->
-  <div id="lead-content">
+  <div id="lead-content" *ngIf="miPortfolio" >
     <h1>{{ miPortfolio.nombre}} {{ miPortfolio.apellido }}</h1>
     <h2>{{ miPortfolio.titulo }}</h2>
     <!--<a href="#" class="btn-rounded-white">Curriculum</a>  ver agregar curriculum-->
