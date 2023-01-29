@@ -12,11 +12,11 @@
     <div class="container" >
       <div class="row" >
         <div class="col-md-3" >
-          <img class="perfil"
+          <img *ngIf="miInfo" class="perfil"
             [src]="miInfo.imgUrl"
             alt="Avatar" />
         </div>
-        <div class="col-md-9" style="padding-top:40px ; padding-left: 20px">
+        <div *ngIf="miInfo" class="col-md-9" style="padding-top:40px ; padding-left: 20px">
           <p >{{ miInfo.about }}</p>
         </div>
       </div>

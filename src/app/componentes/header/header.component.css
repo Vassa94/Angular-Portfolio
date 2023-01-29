@@ -12,6 +12,15 @@
 	z-index: 10;
 }
 
+.slider{
+  margin: 20px;
+  float: right;  
+	position: absolute;
+	list-style-type: none;
+	text-align: right;
+	z-index: 10;
+}
+
 .orden {
   
   float: left;

@@ -56,6 +56,14 @@
 
 }
 
+.card:hover{
+  margin: 10px;
+  width: 300px ; 
+  height: 560px;
+  translate: -5px -5px;
+  box-shadow: 3px 3px 3px 1px;
+}
+
 .content-section{
     border: 1px solid var(--surface-d);
     border-radius: 3px;
