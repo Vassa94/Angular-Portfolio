@@ -7,29 +7,23 @@
 <div id="skills">
     <h2 class="heading">Habilidades</h2>
     <ul>
-        <ng-container *ngFor=  "let skill of skills; let i = index">
+        <ng-container *ngFor="let skill of skills; let i = index">
             <li class="skill card">
-                <button type="button" 
-                        class="btn btn-sm btn-link" 
-                        (click)="edit(content,skill)"
-                        *ngIf="loG()">
+                <button type="button" class="btn btn-sm btn-link" (click)="edit(content,skill)" *ngIf="loG()">
                     <i class="fa-solid fa-pen-to-square"></i>
                 </button>
                 {{skill.nombre}}
-                <button type="button" 
-                        class="btn btn-sm btn-link" 
-                        style="float:right;" 
-                        (click)="borrarBloque(skill.id,i)"    
-                        *ngIf="loG()">
+                <button type="button" class="btn btn-sm btn-link" style="float:right;"
+                    (click)="borrarBloque(skill.id,i)" *ngIf="loG()">
                     <i class="fa-solid fa-xmark"></i>
-                </button>
+                </button>                
                 <p>
                     <ngb-progressbar type="primary" [showValue]="true" [value]="skill.nivel" [striped]="true">
                     </ngb-progressbar>
                 </p>
-
-            </li>
+            </li>            
         </ng-container>
+        
     </ul>
 </div>
 
@@ -54,8 +48,9 @@
                 </div>
                 <div class="mb-3">
                     <label for="imagen" class="form-label">Nivel</label>
-                    <input type="range" name="nivel" class="form-range" min="0" max="100" step="10" id="nivel" formControlName="nivel">
-                    
+                    <input type="range" name="nivel" class="form-range" min="0" max="100" step="10" id="nivel"
+                        formControlName="nivel">
+
                 </div>
             </div>
 
